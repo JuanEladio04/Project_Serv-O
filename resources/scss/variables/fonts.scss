@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'OdibeeSans-Regular';
+    src: url('/public/fonts/OdibeeSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansHebrewCondensed-Regular';
+    src: url('/public/fonts/OpenSansHebrewCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Righteous-Regular';
+    src: url('/public/fonts/Righteous-Regular.ttf');
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Righteous-Regular', sans-serif !important;
+}
+
+p, div{
+    font-family: 'OpenSansHebrewCondensed-Regular', serif !important;
+}
+
+label, input, textarea {
+    font-family: 'OdibeeSans-Regular', serif !important;
+}
+
+.cTitle{
+    font-family: 'Righteous-Regular', sans-serif !important;
+}
+
+.cSubTitle{
+    font-family: 'OdibeeSans-Regular', serif !important;
+}
+
+.cParagraph{
+    font-family: 'OpenSansHebrewCondensed-Regular', serif !important;
+}
