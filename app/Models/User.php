@@ -47,4 +47,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function workSpaces()
+    {
+        return $this->belongsToMany(WorkSpace::class);
+    }
 }
