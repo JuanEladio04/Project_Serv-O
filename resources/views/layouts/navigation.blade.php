@@ -32,11 +32,16 @@
                 </div>
                 <!-- Settings Dropdown -->
                 <div class="hidden ml-auto sm:flex sm:items-center sm:ms-6">
+                    <select name="" id="" class="mx-5">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
                     @auth
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button
-                                    class="text-center items-center px-3 py-2 border border-transparent text-lg leading-4 font-medium rounded-md color-cSecondary hover-cSecondary transition ease-in-out duration-150">
+                                    class="text-center items-center px-3 py-2 border border-transparent text-lg leading-4 font-medium rounded-md color-cSecondary ease-in-out duration-150">
                                     <span class="material-symbols-outlined text-4xl">
                                         account_circle
                                     </span>
@@ -53,7 +58,7 @@
                                 </button>
                             </x-slot>
 
-                            <x-slot name="content">
+                            <x-slot name="content" class="bg-cBackground">
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ 'Mi perfil' }}
                                 </x-dropdown-link>
