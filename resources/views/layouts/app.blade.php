@@ -10,9 +10,9 @@
         <!-- Scripts -->
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-cBackground">
-            @include('layouts.navigation')
+    <body class="font-sans antialiased bg-cBackground">
+        @include('layouts.navigation')
+        <div class="min-h-screen ">
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -28,5 +28,6 @@
                 {{ $slot }}
             </main>
         </div>
+        @include('layouts.footer')
     </body>
 </html>

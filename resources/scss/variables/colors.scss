@@ -12,6 +12,11 @@ $cBackground: #d7d7d7;
 .bg-cPrimary{
     background-color: $cPrimary;
 }
+.hover-cPrimary{
+    :hover{
+        background-color: $cSecondary;
+    }
+}
 
 // Secondary ----------------------------------------------------------------
 .color-cSecondary{
@@ -20,6 +25,12 @@ $cBackground: #d7d7d7;
 
 .bg-cSecondary{
     background-color: $cSecondary;
+}
+
+.hover-cSecondary{
+    :hover{
+        background-color: $cPrimary;
+    }
 }
 
 // Accent ----------------------------------------------------------------
@@ -31,6 +42,12 @@ $cBackground: #d7d7d7;
     background-color: $cAccent;
 }
 
+.hover-cAccent{
+    :hover{
+        background-color: $cSecondary;
+    }
+}
+
 // Background ----------------------------------------------------------------
 .color-cBackground{
     color: $cBackground;
@@ -38,6 +55,12 @@ $cBackground: #d7d7d7;
 
 .bg-cBackground{
     background-color: $cBackground;
+}
+
+.hover-cBackground{
+    :hover{
+        background-color: $cPrimary;
+    }
 }
 
 // Text ----------------------------------------------------------------
