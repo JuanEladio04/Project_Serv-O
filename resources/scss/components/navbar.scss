@@ -1,0 +1,13 @@
+.navbar {
+    background-color: $cPrimary;
+    border-bottom-left-radius: 2.5vh;
+    border-bottom-right-radius: 2.5vh;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    box-shadow: 0 1vh 1.2vh rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 3;
+    a {
+        font-family: 'OdibeeSans-Regular', serif !important;
+    }
+}
