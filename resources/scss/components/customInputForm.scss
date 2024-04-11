@@ -1,0 +1,23 @@
+.customInputForm{
+    background-color: $cPrimary;
+    border-radius: 4vh;
+    padding: 5vh;
+    width: 80vh;
+    margin: 5vh;
+
+    a{
+        text-decoration: none;
+        color: $cText;
+        font-weight: bold;
+
+
+        &:hover{
+            color: $cAccent !important;
+        }
+    }
+
+    button{
+        border-radius: 2vh;
+        padding: 2vh;
+    }
+}
