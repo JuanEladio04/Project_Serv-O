@@ -15,15 +15,15 @@
             <div class="input-wrapper mt-4">
                 <input type="email" id="email" name="email" :value="old('email')" required autofocus
                     autocomplete="username">
-                <label for="email" for="email">Correo electrónico</label>
+                <label for="email">Correo electrónico</label>
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <!-- Password -->
             <div class="input-wrapper mt-4">
                 <input type="password" id="password" name="password" required autocomplete="current-password">
-                <label for="password" for="password">Contraseña</label>
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <label for="password">Contraseña</label>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Remember Me -->

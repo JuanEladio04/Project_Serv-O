@@ -1,52 +1,79 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+    <x-customInputForm>
+        <h1 class="text-4xl text-center">
+            Registro
+        </h1>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+                <!-- Name -->
+                <div class="input-wrapper mt-6">
+                    <input type="text" id="name" name="name" :value="('name')"  autofocus
+                        autocomplete="name">
+                    <label for="name">Nombre</label>
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+                <!-- LastName -->
+                <div class="input-wrapper mt-6">
+                    <input type="text" id="last_name" name="last_name" :value="('last_name')"  autofocus
+                        autocomplete="last_name">
+                    <label for="last_name">Apellidos</label>
+                    <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                </div>
+            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <!-- Email Address -->
+            <div class="input-wrapper mt-6">
+                <input type="email" id="email" name="email" :value="old('email')"  autofocus
+                    autocomplete="email">
+                <label for="email">Correo electrónico</label>
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+            <!-- Password -->
+            <div class="input-wrapper mt-6">
+                <input type="password" id="password" name="password"  autocomplete="new-password">
+                <label for="password">Contraseña</label>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <div class="input-wrapper mt-6">
+                <input type="password_confirmation" id="password_confirmation" name="password_confirmation" 
+                    autocomplete="new-password_confirmation">
+                <label for="password_confirmation">Confirmar contraseña</label>
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            </div>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <div class="grid sm:grid-cols-2 gap-5">
+                <!-- Name -->
+                <div class="input-wrapper mt-6">
+                    <input type="number" id="phone_number" name="phone_number" :value="('phone_number')"  autofocus
+                        autocomplete="phone_number">
+                    <label for="phone_number">Número de</label>
+                    <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+                </div>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+                <!-- LastName -->
+                <div class="input-wrapper mt-6">
+                    <input type="date" id="birth_date" name="birth_date" :value="('birth_date')"  autofocus
+                        autocomplete="birth_date">
+                    <label for="birth_date">Fecha de nacimiento</label>
+                    <x-input-error :messages="$errors->get('birth_date')" class="mt-2" />
+                </div>
+            </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+            <div class="flex items-center justify-center mt-6">
+                <a href="{{ route('login') }}">
+                    {{ ('¿Ya estás registrado?') }}
+                </a>
+            </div>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
+            <button type="submit" class="bg-cAccent color-cPrimary text-2xl w-full cSubTitle mt-10">
+                Registrarse
+            </button>
+        </form>
+    </x-customInputForm>
 </x-guest-layout>
