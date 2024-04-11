@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('command_id');
             $table->string('state');
+            $table->time('time');
             $table->text('failure_traces');
             $table->timestamps();
 
