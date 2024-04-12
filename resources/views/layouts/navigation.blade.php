@@ -16,28 +16,26 @@
                         <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('workSpace.create')" :active="request()->routeIs('workSpace.create')">
-                            {{ __('Crear espacio de trabajo') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
-                            {{ __('Gestión de usuarios') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('index')" :active="request()->routeIs('serviceGestion')">
-                            {{ __('Gestión de servicios') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('index')" :active="request()->routeIs('comandLog')">
-                            {{ __('Registro de comandos') }}
-                        </x-nav-link>
+                        @auth
+                            <x-nav-link :href="route('workSpace.create')" :active="request()->routeIs('workSpace.create')">
+                                {{ __('Crear espacio de trabajo') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
+                                {{ __('Gestión de usuarios') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('index')" :active="request()->routeIs('serviceGestion')">
+                                {{ __('Gestión de servicios') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('index')" :active="request()->routeIs('comandLog')">
+                                {{ __('Registro de comandos') }}
+                            </x-nav-link>
+                        @endauth
                     </div>
                 </div>
                 <!-- Settings Dropdown -->
                 <div class="hidden ml-auto sm:flex sm:items-center sm:ms-6">
-                    <select name="" id="" class="mx-5">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
                     @auth
+                        <select name="" id="" class="mx-5"></select>
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button
