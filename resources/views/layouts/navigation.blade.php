@@ -16,7 +16,7 @@
                         <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('index')" :active="request()->routeIs('workSpace')">
+                        <x-nav-link :href="route('workSpace.create')" :active="request()->routeIs('workSpace.create')">
                             {{ __('Crear espacio de trabajo') }}
                         </x-nav-link>
                         <x-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">

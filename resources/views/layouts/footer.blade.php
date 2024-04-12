@@ -1,4 +1,4 @@
-<footer class="footer bg-cPrimary color-cText p-4 justify-center text-center grid grid-cols-3">
+<footer class="footer bg-cPrimary color-cText p-4 justify-center text-center grid grid-cols-3 mt-10">
     <div>
         <a class="cSubTitle block" href="">Terminos y condiciones</a>
         <a class="cSubTitle block" href="">Política de coockies</a>

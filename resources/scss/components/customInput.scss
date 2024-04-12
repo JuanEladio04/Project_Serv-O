@@ -14,5 +14,16 @@
         border-bottom: 0.5vh solid $cAccent;
       }
     }
+
+    textarea {
+      width: 100%;
+      border: 0.5vh solid $cSecondary;
+      font-size: 2vh;
+      border-radius: 3vh;  
+  
+      &:focus {
+        border: 0.5vh solid $cAccent;
+      }
+    }
 }
   

@@ -9,4 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class WorkSpace extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $fillable = [
+        'name',
+        'description'
+    ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'work_spaces_user')->withPivot('wk_roles');;
+    }
 }
