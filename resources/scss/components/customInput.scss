@@ -1,13 +1,5 @@
-.input-wrapper {
-    position: relative;
-  
+.input-wrapper {  
     label {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      pointer-events: none; 
-      transition: transform 0.3s ease, left 0.3s ease;
       color: $cBackground;
       font-size: 3vh;
     }
@@ -20,11 +12,6 @@
   
       &:focus {
         border-bottom: 0.5vh solid $cAccent;
-      }
-  
-      &:focus + label{
-        transform: translateY(-130%) scale(0.8);
-        left: 5px;
       }
     }
 }
