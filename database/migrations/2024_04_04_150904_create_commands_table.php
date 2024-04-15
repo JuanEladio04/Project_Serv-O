@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('commands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('command');
             $table->string('operation');
             $table->unsignedBigInteger('service_id');
