@@ -12,12 +12,14 @@
                     </span>
                     Añadir usuario
                 </button>
-                <button class="secondaryButton">
-                    <span class="material-symbols-outlined">
-                        edit
-                    </span>
-                    Editar espacio de trabajo
-                </button>
+                <a href="{{ route('workSpace.edit', $workSpace->id) }}">
+                    <button class="secondaryButton">
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                        Editar espacio de trabajo
+                    </button>
+                </a>
                 <button class="secondaryButton">
                     <span class="material-symbols-outlined">
                         add

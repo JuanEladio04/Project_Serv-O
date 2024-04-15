@@ -89,7 +89,8 @@ class WorkSpaceController extends Controller
      */
     public function edit(int $id)
     {
-        //
+        $workSpace = WorkSpace::find($id);
+        return view('workSpace.edit')->with('workSpace', $workSpace);
     }
 
     /**
@@ -99,9 +100,23 @@ class WorkSpaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WorkSpace $workSpace)
+    public function update(WorkSpaceRequest $request, WorkSpace $workSpace)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $validatedData = $request->validated();
+            $workSpace->name = $validatedData['name'];
+            $workSpace->description = $validatedData['description'];
+
+            $workSpace->save();
+
+            DB::commit();
+            return redirect()->route('workSpace.show', [$workSpace->id])->with('status', 'Espacio de trabajo actualizado correctamente');
+        } catch (QueryException $e) {
+            DB::rollBack();
+            return redirect()->route('workSpace.show', [$workSpace->id])->with('status', 'No ha sido posible espacio de trabajo: ' . $e->getMessage());
+        }
     }
 
 }
