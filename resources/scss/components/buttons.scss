@@ -1,0 +1,20 @@
+.button {
+    color: $cPrimary;
+    font-size: 2.5vh;
+    padding: 1vh 2vh;
+    border-radius: 1.2vh;
+    font-family: $cSubTittle;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.secondaryButton {
+    @extend .button;
+    background-color: $cSecondary;
+}
+
+.accentButton {
+    @extend .button;
+    background-color: $cAccent;
+}

@@ -10,15 +10,38 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\WorkSpaceRequest;
 use Illuminate\Database\QueryException;
 
+/**
+ * Class WorkSpaceController
+ * @package App\Http\Controllers
+ */
 class WorkSpaceController extends Controller
 {
     /**
-     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
         return view('workSpace.create');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\WorkSpaceRequest  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(WorkSpaceRequest $request)
     {
         try {
@@ -31,7 +54,7 @@ class WorkSpaceController extends Controller
 
             $newWorkSpace->save();
             Auth::user()->workSpaces()->attach($newWorkSpace, [
-                'wk_role' => 'creator', 
+                'wk_role' => 'creator',
             ]);
 
             DB::commit();
@@ -42,50 +65,43 @@ class WorkSpaceController extends Controller
         }
     }
 
-   /**
-    * 
-    */
-    public function show(WorkSpace $workSpace)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(int $id)
     {
         try {
+            $workSpace = WorkSpace::find($id);
             return view('workSpace.show')->with('workSpace', $workSpace);
-        }
-        catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             return redirect()->route('index')->with('status', 'No ha sido posible cargar espacio de trabajo: ' . $th->getMessage());
         }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(int $id)
+    {
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\WorkSpace  $workSpace
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, WorkSpace $workSpace)
     {
-        // Validar la solicitud
-        $request->validate([
-            // Agrega aquí las reglas de validación según tus necesidades
-        ]);
-
-        // Actualizar el espacio de trabajo
-        $workSpace->update($request->all());
-
-        return response()->json($workSpace, 200);
+        //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\WorkSpace  $workSpace
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(WorkSpace $workSpace)
-    {
-        // Eliminar el espacio de trabajo
-        $workSpace->delete();
-
-        return response()->json(null, 204);
-    }
 }
