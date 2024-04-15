@@ -42,16 +42,17 @@ class WorkSpaceController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\WorkSpace  $workSpace
-     * @return \Illuminate\Http\Response
-     */
+   /**
+    * 
+    */
     public function show(WorkSpace $workSpace)
     {
-        // Mostrar un espacio de trabajo específico
-        return response()->json($workSpace);
+        try {
+            return view('workSpace.show')->with('workSpace', $workSpace);
+        }
+        catch (\Throwable $th) {
+            return redirect()->route('index')->with('status', 'No ha sido posible cargar espacio de trabajo: ' . $th->getMessage());
+        }
     }
 
     /**

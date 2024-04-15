@@ -14,20 +14,22 @@
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
-                            {{ __('Inicio') }}
+                            {{ 'Inicio' }}
                         </x-nav-link>
                         @auth
                             <x-nav-link :href="route('workSpace.create')" :active="request()->routeIs('workSpace.create')">
-                                {{ __('Crear espacio de trabajo') }}
+                                {{ 'Crear espacio de trabajo' }}
                             </x-nav-link>
-                            <x-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
-                                {{ __('Gestión de usuarios') }}
-                            </x-nav-link>
-                            <x-nav-link :href="route('index')" :active="request()->routeIs('serviceGestion')">
-                                {{ __('Gestión de servicios') }}
-                            </x-nav-link>
+                            @if (Auth::user()->role == 'admin')
+                                <x-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
+                                    {{ 'Gestión de usuarios' }}
+                                </x-nav-link>
+                                <x-nav-link :href="route('index')" :active="request()->routeIs('serviceGestion')">
+                                    {{ 'Gestión de servicios' }}
+                                </x-nav-link>
+                            @endif
                             <x-nav-link :href="route('index')" :active="request()->routeIs('comandLog')">
-                                {{ __('Registro de comandos') }}
+                                {{ 'Registro de comandos' }}
                             </x-nav-link>
                         @endauth
                     </div>
@@ -35,7 +37,28 @@
                 <!-- Settings Dropdown -->
                 <div class="hidden ml-auto sm:flex sm:items-center sm:ms-6">
                     @auth
-                        <select name="" id="" class="mx-5"></select>
+                        <x-dropdown align="right">
+                            <x-slot name="trigger">
+                                <button
+                                    class="wk-select color-cSecondary cSubTitle inline-flex items-center justify-center text-xl">
+                                    <span class="material-symbols-outlined">
+                                        expand_more
+                                    </span>
+                                    Seleccionar espacio de trabajo
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content" contentClasses="overflow-y-auto h-40 bg-black">
+                                @foreach (Auth::user()->WorkSpaces as $workSpace)
+                                    <x-dropdown-link :href="route('workSpace.show', ['workSpace', $workSpace])">
+                                        {{ $workSpace->name }}
+                                    </x-dropdown-link>
+                                @endforeach
+                            </x-slot>
+                        </x-dropdown>
+                    @endauth
+
+                    @auth
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button
