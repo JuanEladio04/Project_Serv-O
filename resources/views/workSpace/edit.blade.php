@@ -2,10 +2,10 @@
 
     <div class="flex justify-center items-center h-full">
         <a href="/" class="p-20">
-            <x-application-logo/>
+            <x-application-logo />
         </a>
     </div>
-    
+
 
     <div class="w-full sm:w-1/2 mx-auto">
         <x-customForm>
