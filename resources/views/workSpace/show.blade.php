@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="m-10">
-        <div class="grid sm:grid-cols-2 inline-flex items-center">
+        <div class="grid sm:grid-cols-2 items-center">
             <h1 class="text-4xl sm:text-5xl w-full overflow-hidden my-5 p-1">
                 {{ $workSpace->name }}
             </h1>
@@ -40,7 +40,7 @@
                                 Añadir servidor
                             </div>
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('workSpace.edit', $workSpace->id)">
+                        <x-dropdown-link  data-modal-target="delete-modal" data-modal-toggle="delete-modal">
                             <div class=" inline-flex items-center gap-3 color-cAccent">
                                 <span class="material-symbols-outlined">
                                     delete
@@ -72,7 +72,7 @@
                     </span>
                     Añadir servidor
                 </button>
-                <button class="accentButton">
+                <button class="accentButton" data-modal-target="delete-modal" data-modal-toggle="delete-modal">
                     <span class="material-symbols-outlined">
                         delete
                     </span>
@@ -84,4 +84,7 @@
             {{ $workSpace->description }}
         </p>
     </div>
+
+    <livewire:DeleteWorkSpaceModal :workSpace="$workSpace"/>
+ 
 </x-app-layout>
