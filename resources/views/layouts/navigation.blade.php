@@ -50,7 +50,7 @@
 
                             <x-slot name="content" contentClasses="overflow-y-auto h-40 bg-black">
                                 @foreach (Auth::user()->WorkSpaces as $workSpace)
-                                    <x-dropdown-link :href="route('workSpace.show', ['workSpace', $workSpace])">
+                                    <x-dropdown-link :href="route('workSpace.show', [$workSpace->id])">
                                         {{ $workSpace->name }}
                                     </x-dropdown-link>
                                 @endforeach

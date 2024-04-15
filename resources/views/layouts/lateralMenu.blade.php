@@ -25,7 +25,7 @@
 
                     <div :class="{ 'block': openWKMenu, 'hidden': !openWKMenu }" class="overflow-y-auto overflow-x-hidden h-auto">
                         @foreach (Auth::user()->WorkSpaces as $workSpace)
-                            <x-responsive-nav-link :class="'inline-flex items-center gap-2 ml-5'" :href="route('workSpace.show', ['workSpace', $workSpace])" :active="request()->routeIs('workSpace.create')">
+                            <x-responsive-nav-link :class="'inline-flex items-center gap-2 ml-5'" :href="route('workSpace.show', [$workSpace->id])" :active="request()->routeIs('workSpace.create')">
                                 <span class="material-symbols-outlined">
                                     radio_button_checked
                                 </span>
