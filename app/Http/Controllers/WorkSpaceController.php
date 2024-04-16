@@ -49,6 +49,7 @@ class WorkSpaceController extends Controller
 
             DB::commit();
             return redirect()->route('index')->with('status', 'Espacio de trabajo creado correctamente');
+
         } catch (QueryException $e) {
             DB::rollBack();
             return redirect()->route('index')->with('status', 'No ha sido posible crear espacio de trabajo: ' . $e->getMessage());
@@ -67,7 +68,8 @@ class WorkSpaceController extends Controller
             $workSpace = WorkSpace::find($id);
             return view('workSpace.show')->with('workSpace', $workSpace);
         } catch (\Throwable $th) {
-            return redirect()->route('index')->with('status', 'No ha sido posible cargar espacio de trabajo: ' . $th->getMessage());
+            return redirect()->route('index');
+            session()->flash('status', 'No ha sido posible cargar espacio de trabajo.');
         }
     }
 
@@ -102,10 +104,12 @@ class WorkSpaceController extends Controller
             $workSpace->save();
 
             DB::commit();
-            return redirect()->route('workSpace.show', [$workSpace->id])->with('status', 'Espacio de trabajo actualizado correctamente');
+            session()->flash('status', 'Espacio de trabajo actualizado correctamente');
+            return redirect()->route('workSpace.show', [$workSpace->id]);
         } catch (QueryException $e) {
             DB::rollBack();
-            return redirect()->route('workSpace.show', [$workSpace->id])->with('status', 'No ha sido posible espacio de trabajo: ' . $e->getMessage());
+            session()->flash('status', 'No ha sido posible actualizar espacio de trabajo: ' . $e->getMessage());
+            return redirect()->route('workSpace.show', [$workSpace->id]);
         }
     }
 

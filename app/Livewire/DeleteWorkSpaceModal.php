@@ -17,10 +17,12 @@ class DeleteWorkSpaceModal extends Component
 
     public function performDelete(){
         try {
+            $this->workSpace->users()->detach();
             $this->workSpace->delete();
             return redirect()->route('index')->with('status', 'Espacio de trabajo eliminado correctamente.');
-        } catch (\Throwable $th) {
             
+        } catch (\Throwable $th) {
+            session()->flash('status', 'No ha sido posible eliminar el espacio de trabajo');
         }
     }
 }
