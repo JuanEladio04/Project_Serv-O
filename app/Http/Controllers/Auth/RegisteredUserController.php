@@ -29,29 +29,35 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'phone_number' => ['nullable', 'string', 'digits:9', 'unique:'.User::class],
-            'birth_date' => ['date'],
-        ]);
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'last_name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                'phone_number' => ['nullable', 'string', 'digits:9', 'unique:'.User::class],
+                'birth_date' => ['date'],
+            ]);
+    
+            $user = User::create([
+    
+                'name' => $request->name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone_number' => $request->phone_number,
+                'birth_date' => $request->birth_date
+            ]);
+    
+            event(new Registered($user));
+    
+            Auth::login($user);
 
-        $user = User::create([
-
-            'name' => $request->name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone_number' => $request->phone_number,
-            'birth_date' => $request->birth_date
-        ]);
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(route('index', absolute: false));
+            session()->flash('status','Usuario registrado correctamente');
+            return redirect(route('index', absolute: false));
+        } catch (\Throwable $th) {
+            session()->flash('status','No ha sido posible registrar al usuario');
+            return redirect(route('index'));
+        }
     }
 }
