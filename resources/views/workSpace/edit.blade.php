@@ -9,7 +9,7 @@
 
     <div class="w-full sm:w-1/2 mx-auto">
         <x-customForm>
-            <h1 class="text-4xl text-center">
+            <h1 class="text-4xl text-center overflow-x-hidden overflow-y-hidden flex-wrap">
                 {{ $workSpace->name }}
             </h1>
 
