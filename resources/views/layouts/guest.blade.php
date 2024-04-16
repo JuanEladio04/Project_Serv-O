@@ -8,15 +8,16 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Scripts -->
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans color-cText antialiased">
+<body class="font-sans color-cText antialiased bg-cBackground">
     @include('layouts.navigation')
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-cBackground">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
 
         <div>
             <a href="/">
@@ -26,6 +27,8 @@
 
         {{ $slot }}
     </div>
+    <livewire:StatusAlert />
+
     @include('layouts.footer')
 </body>
 

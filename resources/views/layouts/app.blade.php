@@ -31,7 +31,9 @@
         <!-- Page Content -->
         <main>
             {{ $slot }}
+            <livewire:StatusAlert />
         </main>
+
     </div>
     @include('layouts.footer')
 
