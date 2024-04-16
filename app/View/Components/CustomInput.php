@@ -13,14 +13,16 @@ class CustomInput extends Component
     public $type;
     public $placeholder;
     public $wireModel;
+    public $value;
 
-    public function __construct($label, $name, $type = 'text', $placeholder = '', $wireModel = null)
+    public function __construct($label, $name, $type = 'text', $placeholder = '', $wireModel = null, $value = '')
     {
         $this->label = $label;
         $this->name = $name;
         $this->type = $type;
         $this->placeholder = $placeholder;
         $this->wireModel = $wireModel;
+        $this->value = $value;
     }
 
     /**
