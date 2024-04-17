@@ -34,7 +34,8 @@
                                     Editar espacio de trabajo
                                 </div>
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('workSpace.edit', $workSpace->id)">
+                            <x-dropdown-link data-modal-target="insertServerModal"
+                                data-modal-toggle="insertServerModal">
                                 <div class=" inline-flex items-center gap-3">
                                     <span class="material-symbols-outlined">
                                         add
@@ -72,7 +73,8 @@
                             Editar espacio de trabajo
                         </button>
                     </a>
-                    <button class="secondaryButton">
+                    <button class="secondaryButton" data-modal-target="insertServerModal"
+                        data-modal-toggle="insertServerModal">
                         <span class="material-symbols-outlined">
                             add
                         </span>
@@ -96,5 +98,6 @@
 
     <livewire:DeleteWorkSpaceModal :workSpace="$workSpace" />
     <livewire:AddUserToWKModal :workSpace="$workSpace" />
+    <livewire:CreateServerModal :workSpace="$workSpace" />
 
 </x-app-layout>

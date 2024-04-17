@@ -13,9 +13,24 @@ class WorkSpace extends Model
         'name',
         'description'
     ];
-
+    /**
+     * Get all of the users for the WorkSpace
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function users()
     {
-        return $this->belongsToMany(User::class, 'work_spaces_user')->withPivot('wk_role');;
+        return $this->belongsToMany(User::class, 'work_spaces_user')
+            ->withPivot('wk_role');
+    }
+
+    /**
+     * Get all of the servers for the WorkSpace
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function servers()
+    {
+        return $this->hasMany(Server::class);
     }
 }
