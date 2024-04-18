@@ -6,6 +6,7 @@ use App\Models\Server;
 use Livewire\Component;
 use App\Jobs\PingServer;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\Process;
 
 class ServerTag extends Component
@@ -25,7 +26,6 @@ class ServerTag extends Component
         $this->serverStatus = $this->server->ping();
     }
 
-    #[On('refreshServersState')]
     /**
      * Render the component.
      *

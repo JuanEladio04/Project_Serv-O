@@ -2,31 +2,39 @@
 
 namespace App\Livewire;
 
-use Illuminate\Support\Facades\Process;
 use Livewire\Component;
 use App\Models\WorkSpace;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\Process;
 
 class ServerList extends Component
 {
+    use WithPagination;
+
     public $workSpace;
-    public $servers;
-    
+
+    /**
+     * Mount the component.
+     *
+     * @param WorkSpace $workSpace
+     * @return void
+     */
     public function mount(WorkSpace $workSpace)
     {
         $this->workSpace = $workSpace;
-        $this->servers = $workSpace->servers()->orderByDesc('created_at')->get();
-    }
-
-    public function render()
-    {
-        return view('livewire.server-list');
     }
 
     #[On('newServerAdded')]
-    public function loadServers()
+    /**
+     * Render the component view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render()
     {
-        $this->servers = $this->workSpace->servers()->orderByDesc('created_at')->get();
-        $this->dispatch('refreshServersState');
+        $servers = $this->workSpace->servers()->orderByDesc('created_at')->paginate(12);
+
+        return view('livewire.server-list', compact('servers'));
     }
 }

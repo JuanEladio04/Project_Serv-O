@@ -10,4 +10,7 @@
         @endforeach
     </div>
 
+    <div class="mx-10">
+        {{ $servers->links() }}
+    </div> 
 </div>
