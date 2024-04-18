@@ -12,6 +12,7 @@ class CreateServerModal extends Component
 {
     public $showModal = false;
     public $workSpace;
+    public $statusMessage;
     public $name;
     public $description;
     public $direction;
@@ -26,7 +27,6 @@ class CreateServerModal extends Component
     public function performInsert()
     {
         $this->showModal = true;
-
         $this->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -45,10 +45,10 @@ class CreateServerModal extends Component
             $server->workSpace()->associate($this->workSpace->id);
             $server->save();
 
-            session()->flash('status', 'Servidor añadido correctamente.');
+            $this->statusMessage = 'Servidor añadido correctamente.';
             $this->resetInputFields();
         } catch (\Throwable $th) {
-            session()->flash('status', 'No ha sido posible añadir el servidor.');
+            $this->statusMessage = 'No ha sido posible añadir servidor.';
         }
     }
 

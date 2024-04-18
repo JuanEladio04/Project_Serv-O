@@ -21,7 +21,7 @@
                     <x-CustomInput label="Contraseña del usuario del servidor" name="password" type="password"
                         wireModel="password" />
 
-                    <div class="input-wrapper mt-7">
+                    <div class="input-wrapper mt-7 text-left">
                         <div class="relative z-0">
                             <textarea cols="30" rows="10" id="description" name="description"
                                 class="block resize-none py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer"
