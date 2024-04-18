@@ -17,18 +17,8 @@
             <form method="POST" action="{{ route('workSpace.store') }}" class="sm:p-4">
                 @csrf
                 <!-- WorkSpace Name -->
-                <div class="input-wrapper mt-4">
-                    <div class="relative z-0">
-                        <input type="text" id="name" name="name" value="{{ old('name') }}"
-                            class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer"
-                            placeholder=" " />
-                        <label for="name"
-                            class="absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                            Nombre del espacio de trabajo
-                        </label>
-                    </div>
-                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                </div>
+                <x-CustomInput label="Nombre del espacio de trabajo" name="name" type="text" value="{{ old('name') }}" />
+
 
                 <!-- WorkSpace Description -->
                 <div class="input-wrapper mt-7">
