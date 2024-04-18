@@ -100,4 +100,10 @@
     <livewire:AddUserToWKModal :workSpace="$workSpace" />
     <livewire:CreateServerModal :workSpace="$workSpace" />
 
+    <div class="grid sm:grid-cols-3 sm:mx-20">
+        @foreach ($servers as $server)
+            <livewire:ServerTag :server="$server" />
+        @endforeach
+    </div>
+
 </x-app-layout>
