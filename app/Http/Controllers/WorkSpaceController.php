@@ -66,8 +66,7 @@ class WorkSpaceController extends Controller
     {
         try {
             $workSpace = WorkSpace::find($id);
-            $servers = $workSpace->servers()->orderByDesc('created_at')->get();
-            return view('workSpace.show', compact('servers', 'workSpace'));
+            return view('workSpace.show', compact('workSpace'));
         } catch (\Throwable $th) {
             return redirect()->route('index');
             session()->flash('status', 'No ha sido posible cargar espacio de trabajo.');

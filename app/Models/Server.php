@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use App\Models\Service;
+use App\Jobs\PingServer;
 use App\Models\WorkSpace;
+use App\Jobs\CheckServerOnlineJob;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,16 +52,13 @@ class Server extends Model
      */
     public function ping()
     {
-        try {
-            if ($this->description) {
-                $response = Http::timeout(2)->get($this->description);
-                return $response->successful();
-            }
-        } catch (\Exception $e) {
-            // Log the exception message if needed
-        }
+        exec("ping -n 1 $this->server_dir", $output, $result);
 
-        return false;
+        if ($result == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

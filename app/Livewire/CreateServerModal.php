@@ -45,6 +45,7 @@ class CreateServerModal extends Component
             $server->workSpace()->associate($this->workSpace->id);
             $server->save();
 
+            $this->dispatch('newServerAdded');
             $this->statusMessage = 'Servidor añadido correctamente.';
             $this->resetInputFields();
         } catch (\Throwable $th) {
