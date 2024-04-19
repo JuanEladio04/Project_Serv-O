@@ -6,7 +6,7 @@
     </div>
     <div class="grid sm:grid-cols-3 sm:mx-20">
         @foreach ($servers as $server)
-            <livewire:ServerTag :$server :key="$server->id" />
+            <livewire:ServerTag :$server :key="$server->id"/>
         @endforeach
     </div>
 

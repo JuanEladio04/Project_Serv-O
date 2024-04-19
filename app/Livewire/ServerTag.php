@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Process;
 class ServerTag extends Component
 {
     public $server;
-    public $serverStatus = false;
 
     /**
      * mount function.
@@ -23,7 +22,6 @@ class ServerTag extends Component
     public function mount(Server $server)
     {
         $this->server = $server;
-        $this->serverStatus = $this->server->ping();
     }
 
     /**
@@ -34,14 +32,6 @@ class ServerTag extends Component
     public function render()
     {   
         return view('livewire.server-tag')->with('server', $this->server);
-    }
-
-    #[On('refreshServersState')]
-
-    public function checkServerState()
-    {
-        $this->serverState = $this->server->ping();
-        $this->render();
     }
 
 }
