@@ -13,17 +13,7 @@ class ServerTag extends Component
 {
     public $server;
 
-    /**
-     * mount function.
-     *
-     * @param Server $server
-     * @return void
-     */
-    public function mount(Server $server)
-    {
-        $this->server = $server;
-    }
-
+    #[On('refreshServersState')]
     /**
      * Render the component.
      *

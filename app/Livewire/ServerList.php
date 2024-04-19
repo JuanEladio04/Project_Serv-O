@@ -37,4 +37,9 @@ class ServerList extends Component
 
         return view('livewire.server-list', compact('servers'));
     }
+
+    public function reloadServers(){
+        $servers = $this->workSpace->servers()->orderByDesc('created_at')->paginate(12);
+        $this->dispatch('refreshServersState');
+    }
 }

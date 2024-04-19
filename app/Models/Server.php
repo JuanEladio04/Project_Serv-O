@@ -52,7 +52,7 @@ class Server extends Model
      */
     public function ping()
     {
-        exec("ping -n 1 $this->server_dir", $output, $result);
+        exec("ping -n 1 -w 5 $this->server_dir", $output, $result);
 
         if ($result == 0) {
             return true;

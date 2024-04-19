@@ -1,6 +1,6 @@
 <div>
     <div class="text-right w-full px-10">
-        <button class="cSecondaryButton text-3xl" wire:click="loadServers">
+        <button class="cSecondaryButton text-3xl" wire:click="reloadServers">
             <i class="fa-solid fa-repeat"></i>
         </button>
     </div>
