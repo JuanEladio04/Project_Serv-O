@@ -4,9 +4,8 @@ namespace App\Livewire;
 
 use App\Models\Server;
 use Livewire\Component;
-use App\Http\Requests\ServerRequest;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Helpers\EncryptionHelper;
+
 
 class CreateServerModal extends Component
 {
@@ -25,7 +24,7 @@ class CreateServerModal extends Component
     }
 
     public function performInsert()
-    {
+    {        
         $this->showModal = true;
         $this->validate([
             'name' => 'required|string|max:255',
@@ -41,7 +40,8 @@ class CreateServerModal extends Component
             $server->description = $this->description;
             $server->server_dir = $this->direction;
             $server->user_root = $this->user;
-            $server->password = Hash::make($this->password);
+            $encryptionHelper = new EncryptionHelper();
+            $server->password = $encryptionHelper->encryptPassword($this->password, env('ENCRYPTION_KEY'));
             $server->workSpace()->associate($this->workSpace->id);
             $server->save();
 
@@ -49,7 +49,7 @@ class CreateServerModal extends Component
             $this->statusMessage = 'Servidor añadido correctamente.';
             $this->resetInputFields();
         } catch (\Throwable $th) {
-            $this->statusMessage = 'No ha sido posible añadir servidor.';
+            $this->statusMessage = 'No ha sido posible añadir servidor. ' . $th;
         }
     }
 
