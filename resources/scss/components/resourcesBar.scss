@@ -1,0 +1,14 @@
+.resources-bar {
+    .bar{
+        border: 0.4vh solid $cBackground;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 4.5vh;
+        border-radius: 1vh;
+    }
+
+    .progress {
+        background-color: $cSecondary; 
+        height: 100%;
+    }
+}

@@ -1,4 +1,4 @@
-<a href="" class="items-center justify-center">
+<a href="{{route('server.show', [$server->id])}}" class="items-center justify-center">
     <div class="serverTag mx-4 mt-4 bg-cPrimary grid-cols-3 color-cText grid items-center px-20">
         <livewire:StatusBall :$server :key="$server->id" lazy />
         
