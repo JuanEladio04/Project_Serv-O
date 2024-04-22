@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\ProfileController;
@@ -17,5 +18,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('workSpace', WorkSpaceController::class)->middleware('auth');
 Route::resource('server', ServerController::class)->middleware('auth');
+Route::resource('service', ServiceController::class)->middleware('auth');
 
 require __DIR__ . '/auth.php';

@@ -2,11 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Server;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'service_name'
+    ];
+
+
+    /**
+     * Get all of the servers that belong to the service.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function servers()
+    {
+        return $this->belongsToMany(Server::class);
+    }
 }
