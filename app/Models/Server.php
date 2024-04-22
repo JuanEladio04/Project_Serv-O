@@ -101,19 +101,23 @@ class Server extends Model
             $ssh = new SSH2($this->server_dir);
 
             if (!$ssh->login($this->user_root, $encryptionHelper->decryptPassword($this->password, env('ENCRYPTION_KEY')))) {
-                session()->flash('status', 'Credentials are invalid');
+                session()->flash('status', 'Credenciales inválidas.');
             }
 
-            // Get memory information using the 'free' command
             $output = $ssh->exec('free -m');
 
             $ssh->disconnect();
 
-            // Return the obtained output
-            return $output;
+            $lines = explode("\n", $output);
+            $memory_line = $lines[1];
+            $memory_info = preg_split('/\s+/', $memory_line);
+            $total_memory = $memory_info[1];
+
+            return $total_memory;
+
         } catch (\Throwable $th) {
-            session()->flash('status', 'It is not possible to read memory information');
-            return null;
+            session()->flash('status', 'No ha sido posible obtener la memoria total. ' . $th);
+            return 0;
         }
     }
 
@@ -130,19 +134,23 @@ class Server extends Model
             $ssh = new SSH2($this->server_dir);
 
             if (!$ssh->login($this->user_root, $encryptionHelper->decryptPassword($this->password, env('ENCRYPTION_KEY')))) {
-                session()->flash('status', 'Credentials are invalid');
+                session()->flash('status', 'Credenciales inválidas.');
             }
 
-            // Get memory information using the 'free' command
             $output = $ssh->exec('free -m');
 
             $ssh->disconnect();
 
-            // Return the obtained output
-            return $output;
+            $lines = explode("\n", $output);
+            $memory_line = $lines[1];
+            $memory_info = preg_split('/\s+/', $memory_line);
+            $total_memory = $memory_info[2];
+
+            return $total_memory;
+
         } catch (\Throwable $th) {
-            session()->flash('status', 'It is not possible to read memory information');
-            return null;
+            session()->flash('status', 'No ha sido posible obtener la memoria total. ' . $th);
+            return 0;
         }
     }
 

@@ -14,11 +14,7 @@
         </article>
         <article>
             <h2 class="text-4xl">Recursos</h2>
-            <div class="mx-50 items-center gap-y-10">
-                <livewire:ResourcesBar :progress="$server->getCpuUsage()" :name="'CPU'" lazy/>
-                <livewire:ResourcesBar :progress="80" :name="'Memoria'" />
-                <livewire:ResourcesBar :progress="64" :name="'GPU'" />
-            </div>
+            <livewire:ServerResources :server="$server"/>
         </article>
         <article>
             <h2 class="text-4xl">Servicios</h2>

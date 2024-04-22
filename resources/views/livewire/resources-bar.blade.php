@@ -7,6 +7,6 @@
         </div>
     </div>
     <div class="cSubTittle text-xl col-span-1 mx-5 z-30 w-full relative">
-        {{ $progress }}%/100%
+        {{ $current }}/{{ $total }}
     </div>
 </div>
