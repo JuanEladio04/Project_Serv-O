@@ -10,7 +10,7 @@
         </a>
     </div>
 
-    <div class="grid sm:grid-cols-4 grid-cols-1 mx-20">
+    <div class="grid sm:grid-cols-4 grid-cols-1 sm:mx-20 mx-10">
         @foreach ($services as $service)
             <livewire:ServiceTag :service="$service">
         @endforeach
