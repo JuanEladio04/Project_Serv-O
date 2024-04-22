@@ -1,4 +1,10 @@
-<div class="mx-50 items-center gap-y-10">
-    <livewire:ResourcesBar :progress="$cpuUsage" :name="'CPU'"  :total="'100%'" lazy/>
-    <livewire:ResourcesBar :progress="$percentUsedMemory" :name="'Memoria'" :total="$totalMemory . 'MB'" :current="$usedMemory . 'MB'" lazy/>
+<div class="flex flex-col justify-center items-center" wire:poll.3s='getResources'>
+    @if ($server->ping())
+        <livewire:ResourcesBar :progress="$cpuUsage" :name="'CPU'" :total="'100%'"/>
+        <livewire:ResourcesBar :progress="$percentUsedMemory" :name="'Memoria'" :total="$totalMemory . 'MB'" :current="$usedMemory . 'MB'"/>
+    @else
+        <p>
+            No ha sido posible conectarse con el servidor
+        </p>
+    @endif
 </div>

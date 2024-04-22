@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <section class="server bg-cPrimary mt-10">
-        <article class="grid grid-cols-3 py-10 mx-20">
+        <article class="grid grid-cols-3 py-10">
             <h1 class="col-span-2 text-6xl">
                 {{ $server->name }}
             </h1>

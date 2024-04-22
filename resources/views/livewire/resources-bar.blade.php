@@ -6,7 +6,7 @@
         <div class="progress text-center" style="width: {{ $progress }}%;">
         </div>
     </div>
-    <div class="cSubTittle text-xl col-span-1 mx-5 z-30 w-full relative">
+    <div class="cSubTittle sm:text-xl col-span-1 mx-5 w-full relative text-sm flex items-center justify-center">
         {{ $current }}/{{ $total }}
     </div>
 </div>

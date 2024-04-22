@@ -8,17 +8,11 @@ class ServerResources extends Component
 {
     public $server;
     public $cpuUsage = '0';
-    public $totalMemory  = '0';
-    public $usedMemory  = '0';
-    public $percentUsedMemory  = '0';
+    public $totalMemory = '0';
+    public $usedMemory = '0';
+    public $percentUsedMemory = '0';
 
-    /**
-     * mount function.
-     *
-     * @return void
-     */
-    public function mount()
-    {
+    public function mount(){
         $this->getResources();
     }
 
@@ -28,7 +22,7 @@ class ServerResources extends Component
      * @return \Illuminate\View\View
      */
     public function render()
-    {
+    {  
         return view('livewire.server-resources');
     }
 
@@ -37,8 +31,11 @@ class ServerResources extends Component
         $this->cpuUsage = $this->server->getCpuUsage();
         $this->totalMemory = $this->server->getMemory();
         $this->usedMemory = $this->server->getMemoryUsage();
-        $this->percentUsedMemory = ($this->usedMemory * 100) / $this->totalMemory;
+        if ($this->usedMemory && $this->totalMemory) {
+            $this->percentUsedMemory = ($this->usedMemory * 100) / $this->totalMemory;
+        }
 
+        $this->dispatch('updateResourcesBar');
         $this->render();
     }
 }

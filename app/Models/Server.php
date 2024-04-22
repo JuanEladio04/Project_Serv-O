@@ -70,6 +70,7 @@ class Server extends Model
 
         try {
             $ssh = new SSH2($this->server_dir);
+            $ssh->setTimeout(3);
 
             if (!$ssh->login($this->user_root, $encryptionHelper->decryptPassword($this->password, env('ENCRYPTION_KEY')))) {
                 session()->flash('status', 'Credenciales inválidas');
@@ -99,6 +100,7 @@ class Server extends Model
 
         try {
             $ssh = new SSH2($this->server_dir);
+            $ssh->setTimeout(3);
 
             if (!$ssh->login($this->user_root, $encryptionHelper->decryptPassword($this->password, env('ENCRYPTION_KEY')))) {
                 session()->flash('status', 'Credenciales inválidas.');
@@ -116,7 +118,7 @@ class Server extends Model
             return $total_memory;
 
         } catch (\Throwable $th) {
-            session()->flash('status', 'No ha sido posible obtener la memoria total. ' . $th);
+            session()->flash('status', 'No ha sido posible obtener la memoria total.');
             return 0;
         }
     }
@@ -132,6 +134,7 @@ class Server extends Model
 
         try {
             $ssh = new SSH2($this->server_dir);
+            $ssh->setTimeout(3);
 
             if (!$ssh->login($this->user_root, $encryptionHelper->decryptPassword($this->password, env('ENCRYPTION_KEY')))) {
                 session()->flash('status', 'Credenciales inválidas.');
@@ -149,10 +152,9 @@ class Server extends Model
             return $total_memory;
 
         } catch (\Throwable $th) {
-            session()->flash('status', 'No ha sido posible obtener la memoria total. ' . $th);
+            session()->flash('status', 'No ha sido posible obtener la memoria total.');
             return 0;
         }
     }
-
 
 }
