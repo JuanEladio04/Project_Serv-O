@@ -24,8 +24,8 @@ class ServerRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'direction' => 'required|string|max:255',
-            'user' => 'required|string|max:255',
+            'server_dir' => 'required|string|max:255',
+            'user_root' => 'required|string|max:255',
             'password' => 'required|string|max:255',
         ];
     }

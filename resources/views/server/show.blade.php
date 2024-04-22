@@ -24,7 +24,7 @@
                                 </div>
                             </x-dropdown-link>
                             {{-- @if (Auth::user()->workSpaces->find($workSpace->id)->pivot->wk_role == 'creator') --}}
-                                <x-dropdown-link data-modal-target="delete-modal" data-modal-toggle="delete-modal">
+                                <x-dropdown-link :href="'#'" data-modal-target="delete-modal" data-modal-toggle="delete-modal">
                                     <div class=" inline-flex items-center gap-3 color-cAccent">
                                         <span class="material-symbols-outlined">
                                             delete
@@ -48,11 +48,13 @@
         </article>
         <article>
             <h2 class="text-4xl">Recursos</h2>
-            <livewire:ServerResources :server="$server" />
+            <livewire:ServerResources :server="$server" lazy/>
         </article>
         <article>
             <h2 class="text-4xl">Servicios</h2>
         </article>
     </section>
+
+    <livewire:DeleteServerModal :server="$server" />   
 
 </x-app-layout>
