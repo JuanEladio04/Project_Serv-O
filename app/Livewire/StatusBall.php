@@ -10,18 +10,20 @@ class StatusBall extends Component
     public $server;
     public $serverStatus;
 
-    public function mount()
-    {
-        $this->serverStatus = $this->server->ping();
-    }
-    
     public function render()
     {
         return view('livewire.status-ball');
     }
 
+    /**
+     * This function is triggered when the refreshServersState event is dispatched.
+     * It updates the status of the servers and re-renders the component.
+     *
+     * @return void
+     */
     #[On('refreshServersState')]
-    public function reloadServersState(){
+    public function reloadServersState(): void
+    {
         $this->serverStatus = $this->server->ping();
         $this->render();
     }
