@@ -22,6 +22,10 @@ class ServiceController extends Controller
         return view('service.index')->with('services', $services);
     }
 
+    public function show(Service $service){
+        return view('service.show')->with('service', $service);
+    }
+
     /**
      * Returns a view of the service create page.
      *

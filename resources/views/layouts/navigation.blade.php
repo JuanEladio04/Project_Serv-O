@@ -24,8 +24,8 @@
                                 <x-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
                                     {{ 'Gestión de usuarios' }}
                                 </x-nav-link>
-                                <x-nav-link :href="route('index')" :active="request()->routeIs('serviceGestion')">
-                                    {{ 'Gestión de servicios' }}
+                                <x-nav-link :href="route('service.index')" :active="request()->routeIs('serviceGestion')">
+                                    {{ 'Gestión de servicios'   }}
                                 </x-nav-link>
                             @endif
                             <x-nav-link :href="route('index')" :active="request()->routeIs('comandLog')">
