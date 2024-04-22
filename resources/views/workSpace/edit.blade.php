@@ -2,7 +2,7 @@
 
     <div class="flex justify-center items-center h-full">
         <a href="/" class="p-20">
-            <x-application-logo />
+            <x-application-logo class="block h-9 w-auto fill-current color-cPrimary">w-48</x-application-logo>
         </a>
     </div>
 

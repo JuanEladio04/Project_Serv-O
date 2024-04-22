@@ -22,7 +22,7 @@
 
         <div>
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo class="block h-9 w-auto fill-current color-cPrimary">w-48</x-application-logo>
             </a>
         </div>
 

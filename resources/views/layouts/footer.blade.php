@@ -6,7 +6,7 @@
     </div>
     <div class="flex justify-center items-center"> <!-- Agrega las clases "flex justify-center items-center" -->
         <a href="{{ route('index') }}">
-            <x-application-logo class="block h-9 fill-current color-cPrimary" />
+            <x-application-logo class="block h-9 w-auto fill-current color-cPrimary">w-32</x-application-logo>
         </a>
     </div>
     <div>
