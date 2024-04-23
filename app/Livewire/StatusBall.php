@@ -8,10 +8,11 @@ use Livewire\Attributes\On;
 class StatusBall extends Component
 {
     public $server;
-    public $serverStatus;
+    public $serverStatus = 'false';
 
     public function render()
     {
+        $this->serverStatus = $this->server->ping();
         return view('livewire.status-ball');
     }
 
