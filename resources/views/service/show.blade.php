@@ -41,4 +41,7 @@
             {{ $service->service_name }}
         </p>
     </div>
+
+    <livewire:DeleteServiceModal :service="$service" />   
+
 </x-app-layout>

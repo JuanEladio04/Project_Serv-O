@@ -24,6 +24,6 @@ class Service extends Model
      */
     public function servers()
     {
-        return $this->belongsToMany(Server::class);
+        return $this->belongsToMany(Server::class, 'services_servers');
     }
 }
