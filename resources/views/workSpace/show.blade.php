@@ -96,11 +96,12 @@
         </p>
     </div>
 
-    <livewire:DeleteWorkSpaceModal :workSpace="$workSpace" />
-    <livewire:AddUserToWKModal :workSpace="$workSpace" />
-    <livewire:CreateServerModal :workSpace="$workSpace" />
-
     <livewire:ServerList :workSpace="$workSpace" />
+
+
+    <livewire:DeleteWorkSpaceModal :workSpace="$workSpace" />
+    <livewire:CreateServerModal :workSpace="$workSpace" />
+    <livewire:AddUserToWKModal :workSpace="$workSpace" />
 
 
 </x-app-layout>
