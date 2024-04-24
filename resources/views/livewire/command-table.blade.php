@@ -33,7 +33,7 @@
 
 
     @if ($commands->count() > 0)
-        <div class="tableContainer px-5">
+        <div class="tableContainer px-5 my-10">
             <table class="w-full">
                 <tr class="bg-cSecondary color-cPrimary cSubTitle text-3xl">
                     <th>Nombre</th>
@@ -48,7 +48,10 @@
                         <td>{{ $command->operation }}</td>
                         <td>{{ $command->command }}</td>
                         <td>{{ $command->description }}</td>
-                        <td></td>
+                        <td class="text-center">
+                            <button class="secondaryButton">Editar</button>
+                            <livewire:DeleteCommandModal :command="$command" />
+                        </td>
                     </tr>
                 @endforeach
             </table>
