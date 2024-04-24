@@ -24,7 +24,8 @@ class ServiceController extends Controller
         return view('service.index')->with('services', $services);
     }
 
-    public function show(Service $service){
+    public function show(Service $service)
+    {
         return view('service.show')->with('service', $service);
     }
 
@@ -62,4 +63,41 @@ class ServiceController extends Controller
             return redirect()->route('service.index')->with('status', 'No ha sido posible registrar servicio.');
         }
     }
+
+    /**
+     * Returns a view of the service edit page.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function edit($id)
+    {
+        $service = Service::find($id);
+        return view('service.edit')->with('service', $service);
+    }
+
+    /**
+     * Updates a service.
+     *
+     * @param Service $service
+     */
+    public function update(Service $service, ServiceRequest $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $validatedData = $request->validated();
+            $service->name = $validatedData['name'];
+            $service->service_name = $validatedData['service_name'];
+
+            $service->save();
+
+            DB::commit();
+            return redirect()->route('service.show', [$service->id])->with('status', 'Servicio actualizado correctamente.');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->route('service.show', [$service->id])->with('status', 'No ha sido posible actualizar el servicio.');
+        }
+    }
+
+
 }

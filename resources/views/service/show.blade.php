@@ -24,21 +24,20 @@
                                 Editar servidor
                             </div>
                         </x-dropdown-link>
-                        {{-- @if (Auth::user()->workSpaces->find($workSpace->id)->pivot->wk_role == 'creator') --}}
-                            <x-dropdown-link :href="'#'" data-modal-target="delete-modal" data-modal-toggle="delete-modal">
-                                <div class=" inline-flex items-center gap-3 color-cAccent">
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
-                                    Eliminar servidor
-                                </div>
-                            </x-dropdown-link>
-                        {{-- @endif --}}
+                        <x-dropdown-link :href="'#'" data-modal-target="delete-modal"
+                            data-modal-toggle="delete-modal">
+                            <div class=" inline-flex items-center gap-3 color-cAccent">
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                                Eliminar servidor
+                            </div>
+                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </div>
         </div>
-        <p class="text-4xl cSubTitle">
+        <p class="text-4xl cSubTitle mt-5">
             {{ $service->service_name }}
         </p>
     </div>
