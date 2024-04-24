@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-cPrimary my-14 px-20 py-10">
+    <div class="bg-cPrimary my-14 px-20 py-10 shadow-md">
         <div class="grid grid-cols-2 justify-center items-center">
             <p class="text-7xl cTitle">
                 {{ $service->name }}
@@ -44,5 +44,5 @@
 
     <livewire:CommandTable :service="$service" />
     <livewire:DeleteServiceModal :service="$service" />
-    
+
 </x-app-layout>

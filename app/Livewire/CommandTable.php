@@ -5,11 +5,13 @@ namespace App\Livewire;
 use App\Models\Command;
 use App\Models\Service;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class CommandTable extends Component
 {
     public Service $service;
 
+    #[On('reloadCommands')]
     /**
      * Render the component
      *

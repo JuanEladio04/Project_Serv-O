@@ -1,4 +1,4 @@
-<div class="bg-cPrimary py-20">
+<div class="commandTable bg-cPrimary py-20 shadow-md">
 
     <div class="grid sm:grid-cols-2 mx-10 justify-center items-center">
         <div class="grid-cols-3">
@@ -21,28 +21,38 @@
         </div>
 
         <div class="text-right align-middle">
-            <button class="secondaryButton">
+            <button class="secondaryButton" data-modal-target="createCommandModal"
+                data-modal-toggle="createCommandModal">
                 <span class="material-symbols-outlined">
                     add
                 </span>
-                Añadir servicio
+                Registrar comando
             </button>
         </div>
     </div>
 
 
     @if ($commands->count() > 0)
-        <table class="mx-5">
-            <tr class="bg-cSecondary">
-                <th>Nombre</th>
-                <th>Operación</th>
-                <th>Descripción</th>
-                <th>Operación</th>
-            </tr>
-            <tr>
-
-            </tr>
-        </table>
+        <div class="tableContainer px-5">
+            <table class="w-full">
+                <tr class="bg-cSecondary color-cPrimary cSubTitle text-3xl">
+                    <th>Nombre</th>
+                    <th>Operación</th>
+                    <th>Comando</th>
+                    <th>Descripción</th>
+                    <th>Operaciónes</th>
+                </tr>
+                @foreach ($commands as $command)
+                    <tr>
+                        <td>{{ $command->name }}</td>
+                        <td>{{ $command->operation }}</td>
+                        <td>{{ $command->command }}</td>
+                        <td>{{ $command->description }}</td>
+                        <td></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
         <div class="m-10 block">
             {{ $commands->links() }}
         </div>
@@ -51,5 +61,7 @@
             Este servicio no tiene comandos actualmente
         </p>
     @endif
+
+    <livewire:CreateCommandModal :service="$service" />
 
 </div>
