@@ -26,4 +26,14 @@ class Service extends Model
     {
         return $this->belongsToMany(Server::class, 'services_servers');
     }
+
+    /**
+     * Get all of the commands for the service.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function commands()
+    {
+        return $this->hasMany(Command::class);
+    }
 }

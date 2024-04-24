@@ -42,6 +42,7 @@
         </p>
     </div>
 
-    <livewire:DeleteServiceModal :service="$service" />   
-
+    <livewire:CommandTable :service="$service" />
+    <livewire:DeleteServiceModal :service="$service" />
+    
 </x-app-layout>

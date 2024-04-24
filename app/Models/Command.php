@@ -9,4 +9,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Command extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'command',
+        'operation'
+    ];
+
+    /**
+     * Get the service that owns the command.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

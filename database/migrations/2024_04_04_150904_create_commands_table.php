@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('command');
-            $table->string('operation');
+            $table->enum('operation', ['install', 'uninstall', 'operation'])->default('operation');
             $table->unsignedBigInteger('service_id');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('service_id')->references('id')->on('services');
