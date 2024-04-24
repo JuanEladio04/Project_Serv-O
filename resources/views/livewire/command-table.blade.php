@@ -49,7 +49,7 @@
                         <td>{{ $command->command }}</td>
                         <td>{{ $command->description }}</td>
                         <td class="text-center">
-                            <button class="secondaryButton">Editar</button>
+                            <livewire:EditCommandModal :command="$command" />
                             <livewire:DeleteCommandModal :command="$command" />
                         </td>
                     </tr>
