@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ServiceRequest;
+use Illuminate\Database\QueryException;
 
 class ServiceController extends Controller
 {
@@ -18,7 +19,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $services = Service::orderByDesc('created_at')->paginate(12);
+
         return view('service.index')->with('services', $services);
     }
 
@@ -39,7 +41,6 @@ class ServiceController extends Controller
     /**
      * Creates a new service.
      *
-     * @return \Illuminate\Contracts\View\View
      */
     public function store(ServiceRequest $request)
     {

@@ -26,7 +26,6 @@ class Server extends Model
     /**
      * Get all of the workspaces for the server.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function workSpace()
     {
@@ -50,7 +49,7 @@ class Server extends Model
      */
     public function ping()
     {
-        exec("ping -n 1 -w 5 $this->server_dir", $output, $result);
+        exec("ping -n 1 -w 1 $this->server_dir", $output, $result);
 
         if ($result == 0) {
             return true;
@@ -84,8 +83,8 @@ class Server extends Model
 
             return $cpuUsage;
         } catch (\Throwable $th) {
-            return 0;
             session()->flash('status', 'No es posible leer la información de la CPU');
+            return 0;
         }
     }
 
