@@ -5,7 +5,7 @@
 
             <div class="input-wrapper mt-4 m-7 inline-block w-1/2 col-span-2">
                 <div class="relative z-0">
-                    <input type="search" wire:model.blur='search'
+                    <input type="search" wire:model.live='search'
                         class="block py-2.5 px-3 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer"
                         placeholder=" " />
                     <label for="search"
@@ -15,9 +15,9 @@
                 </div>
             </div>
 
-            <button class="secondaryButton col-span-1">
+            {{-- <button class="secondaryButton col-span-1">
                 Buscar
-            </button>
+            </button> --}}
         </div>
 
         <div class="text-right align-middle">

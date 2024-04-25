@@ -10,6 +10,7 @@ use Livewire\Attributes\On;
 class CommandTable extends Component
 {
     public Service $service;
+    public $search;
 
     #[On('reloadCommands')]
     /**
@@ -19,7 +20,11 @@ class CommandTable extends Component
      */
     public function render()
     {
-        $commands = $this->service->commands()->paginate(10);
+        $commands = $this->service->commands()->where('name', 'like', '%' . $this->search . '%')
+        ->orWhere('command', 'like', '%' . $this->search . '%')
+        ->orWhere('operation', 'like', '%' . $this->search . '%')
+        ->paginate(10);
+        
         return view('livewire.command-table')->with('commands', $commands);
     }
 }
