@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class EditCommandModal extends Component
 {
@@ -23,7 +24,7 @@ class EditCommandModal extends Component
         $this->commandStr = $this->command->command;
 
     }
-
+    
     public function render()
     {
         return view('livewire.edit-command-modal');

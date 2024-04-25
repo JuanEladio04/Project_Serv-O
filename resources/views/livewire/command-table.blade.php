@@ -43,16 +43,7 @@
                     <th>Operaciónes</th>
                 </tr>
                 @foreach ($commands as $command)
-                    <tr>
-                        <td>{{ $command->name }}</td>
-                        <td>{{ $command->operation }}</td>
-                        <td>{{ $command->command }}</td>
-                        <td>{{ $command->description }}</td>
-                        <td class="text-center">
-                            <livewire:EditCommandModal :command="$command" />
-                            <livewire:DeleteCommandModal :command="$command" />
-                        </td>
-                    </tr>
+                    <livewire:CommandRow :$command :key="$command->id" />
                 @endforeach
             </table>
         </div>

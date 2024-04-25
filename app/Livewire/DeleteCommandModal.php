@@ -9,7 +9,6 @@ class DeleteCommandModal extends Component
 {
     public $command;
 
-    #[On('reloadCommands')]
     public function render()
     {
         return view('livewire.delete-command-modal');
@@ -18,7 +17,6 @@ class DeleteCommandModal extends Component
     /**
      * Delete the current command
      *
-     * @return void
      */
     public function performDelete()
     {
@@ -29,6 +27,6 @@ class DeleteCommandModal extends Component
 
         } catch (\Throwable $th) {
             session()->flash('status', 'No ha sido posible eliminar el comando');
-        }
+        } 
     }
 }
