@@ -53,8 +53,8 @@
                 <h2 class="text-4xl">Servicios</h2>
                 <div class="text-right">
                     <button class="secondaryButton" data-modal-target="addServiceToServerModal"
-                            data-modal-toggle="addServiceToServerModal">
-                            <span class="material-symbols-outlined">
+                        data-modal-toggle="addServiceToServerModal">
+                        <span class="material-symbols-outlined">
                             add
                         </span>
                         Añadir servicio
@@ -62,13 +62,10 @@
                 </div>
             </div>
 
-            <div>
-                
-            </div>
+            <livewire:ServiceStatusMenu :server="$server"/>
         </article>
     </section>
 
     <livewire:DeleteServerModal :server="$server" />
     <livewire:AddServiceToServerModal :server="$server" />
-
 </x-app-layout>
