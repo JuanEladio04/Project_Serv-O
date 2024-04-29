@@ -2,7 +2,7 @@
     <div class="relative z-0">
         <input type="{{ $type }}" id="{{ $id }}" name="{{ $name }}"
             @if ($wireModel) wire:model.{{ $wireModelType }}="{{ $wireModel }}" @endif
-            class="block py-2.5 px-3 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer"
+            class="block py-2.5 px-3 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer {{ $class }}"
             placeholder="{{ $placeholder }}"
             value = "{{ $value }}" />
         <label for="{{ $id }}"

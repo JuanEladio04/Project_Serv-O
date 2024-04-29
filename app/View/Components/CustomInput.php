@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class CustomInput extends Component
 {
     public $label;
+    public $class;
     public $name;
     public $id;
     public $type;
@@ -17,9 +18,10 @@ class CustomInput extends Component
     public $value;
     public $wireModelType;
 
-    public function __construct($label, $name, $type = 'text', $placeholder = '', $wireModel = null, $value = '', $wireModelType = '', $id = '')
+    public function __construct($label, $name, $type = 'text', $placeholder = '', $wireModel = null, $value = '', $wireModelType = '', $id = '', $class = '')
     {
         $this->label = $label;
+        $this->class = $class;
         $this->name = $name;
         if ($id != '') {
             $this->id = $id;
