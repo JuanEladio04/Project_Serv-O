@@ -21,7 +21,7 @@
                                 <span class="material-symbols-outlined">
                                     edit
                                 </span>
-                                Editar servidor
+                                Editar servicio
                             </div>
                         </x-dropdown-link>
                         <x-dropdown-link :href="'#'" data-modal-target="delete-modal"
@@ -30,7 +30,7 @@
                                 <span class="material-symbols-outlined">
                                     delete
                                 </span>
-                                Eliminar servidor
+                                Eliminar servicio
                             </div>
                         </x-dropdown-link>
                     </x-slot>
