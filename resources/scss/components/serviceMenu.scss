@@ -1,0 +1,11 @@
+#serviceMenu{
+    border-top: 0.3vh solid $cBackground;
+
+    select, textarea, input{
+        border-radius: 1.5vh;
+        border: 0.3vh solid $cBackground;
+        &:focus{
+            border: 0.3vh solid $cAccent;
+        }
+    }
+}

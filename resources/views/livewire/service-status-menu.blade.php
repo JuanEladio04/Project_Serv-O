@@ -1,5 +1,5 @@
-<section>
+<div class=" my-10 ms-5">
     @foreach ($services as $service)
-        <livewire:ServiceTag :service="$service" :key="$service->id">
+        <livewire:ServiceStatus :service="$service" :server="$server" :key="$service->id" />
     @endforeach
-</section>
+</div>
