@@ -1,12 +1,13 @@
 <div id="serviceMenu" class="">
-    <div class="grid grid-cols-2 cursor-pointer items-center align-middle justify-center" wire:click='toggleMenu'>
+    <div class="grid grid-cols-2 cursor-pointer items-center align-middle justify-center py-3" wire:click='toggleMenu'>
         <p class="text-4xl cSubTitle">
             {{ $service->name }}
         </p>
 
         <div class="text-right inline-block ">
             <p class="inline-block align-middle">
-                <i class="color-{{ $serviceStatus ? 'cSecondary' : 'cBackground' }} ms-2 fa-solid fa-circle text-4xl"></i>
+                <i
+                    class="color-{{ $serviceStatus ? 'cSecondary' : 'cBackground' }} ms-2 fa-solid fa-circle text-4xl"></i>
             </p>
 
             <button class="inline items-center">
@@ -30,7 +31,7 @@
                 @endforeach
             </select>
 
-            <button class="col-span-1 secondaryButton ms-5">
+            <button class="col-span-1 secondaryButton ms-5" wire:click='executeCommand'>
                 <i class="fa-solid fa-play"></i>
                 Ejecutar
             </button>
@@ -55,7 +56,13 @@
                     </div>
                 </div>
 
-                <textarea class="block w-full resize-none text-2xl" name="" id="" cols="30" rows="10" disabled></textarea>
+                <textarea class="block w-full resize-none text-2xl" name="" id="" cols="30" rows="10" disabled
+                    wire:model='commandOutput'>
+                    {{ $commandOutput }}
+                </textarea>
+                <p>
+                    {{ $commandOutput }}
+                </p>
             </div>
         @endisset
     @endif

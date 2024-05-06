@@ -26,4 +26,9 @@ class Command extends Model
     {
         return $this->belongsTo(Service::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

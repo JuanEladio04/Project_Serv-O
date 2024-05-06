@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\CommandController;
 use App\Models\Command;
 use Livewire\Component;
 
@@ -14,6 +15,7 @@ class ServiceStatus extends Component
     public $selectedCommandId;
     public $selectedCommand;
     public $arguments;
+    public $commandOutput;
 
     public function render()
     {
@@ -53,4 +55,17 @@ class ServiceStatus extends Component
     {
         $this->serviceStatus = $this->service->status($this->server);
     }
+
+    /**
+     * Execute the selected command
+     *
+     * @return void
+     */
+    public function executeCommand()
+    {
+        $commandController = new CommandController();
+        $this->commandOutput = $commandController->executeCommand($this->server, $this->selectedCommand);
+        $this->render();
+    }
+
 }

@@ -48,8 +48,25 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Get all of the user's workspaces.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function workSpaces()
     {
-        return $this->belongsToMany(WorkSpace::class, 'work_spaces_user')->withPivot('wk_role');
+        return $this->belongsToMany(WorkSpace::class, 'work_spaces_user')
+            ->withPivot('wk_role');
+    }
+
+    /**
+     * Get all of the user's commands.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function commands()
+    {
+        return $this->belongsToMany(Command::class)
+            ->withPivot('state', 'time', 'failure_traces');
     }
 }
