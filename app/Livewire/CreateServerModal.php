@@ -55,11 +55,7 @@ class CreateServerModal extends Component
 
     private function resetInputFields()
     {
-        $this->name = '';
-        $this->description = '';
-        $this->direction = '';
-        $this->user = '';
-        $this->password = '';
+        $this->reset(['name', 'description', 'direction', 'password', 'user']);
     }
 
 }
