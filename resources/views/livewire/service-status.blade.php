@@ -11,18 +11,20 @@
             </p>
             <x-loading-loop>w-14 inline</x-loading-loop>
 
-            <button class="inline items-center">
-                <span class="{{ $show ? 'hidden' : 'inline-block' }} text-4xl material-symbols-outlined">
-                    expand_more
-                </span>
-                <span class=" {{ $show ? 'inline-block' : 'hidden' }} text-4xl material-symbols-outlined">
-                    expand_less
-                </span>
-            </button>
+            @if ($userRole != 'reader')
+                <button class="inline items-center">
+                    <span class="{{ $show ? 'hidden' : 'inline-block' }} text-4xl material-symbols-outlined">
+                        expand_more
+                    </span>
+                    <span class=" {{ $show ? 'inline-block' : 'hidden' }} text-4xl material-symbols-outlined">
+                        expand_less
+                    </span>
+                </button>
+            @endif
         </div>
     </div>
 
-    @if ($show)
+    @if ($show && $userRole != 'reader')
         <button class="accentButton" wire:click='removeService'>
             <i class="fa-solid fa-minus"></i>
         </button>

@@ -11,6 +11,7 @@ class ServiceStatusMenu extends Component
 {
     public $server;
     public $services;
+    public $userRole;
 
     #[On('serverAddedToService')]
     #[On('serviceRemovedFromServer')]

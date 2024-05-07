@@ -9,6 +9,7 @@ use Livewire\Component;
 class ServiceStatus extends Component
 {
     public $show;
+    public $userRole;
     public $service;
     public $server;
     public $serviceStatus;
