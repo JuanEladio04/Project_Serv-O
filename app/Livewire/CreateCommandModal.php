@@ -63,6 +63,7 @@ class CreateCommandModal extends Component
         $this->description = '';
         $this->command = '';
         $this->operation = '';
+        $this->reset(['name', 'description', 'command', 'operation']);
     }
 
 }

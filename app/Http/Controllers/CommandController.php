@@ -36,6 +36,7 @@ class CommandController extends Controller
                 Auth::user()->commands()->attach($command, [
                     'state' => 'ERROR',
                     'time' => Carbon::now()->toTimeString(),
+                    'date' => Carbon::now()->toDateString(),
                     'failure_traces' => $output
                 ]);
             } else {
@@ -51,7 +52,7 @@ class CommandController extends Controller
 
         } catch (\Throwable $th) {
             session()->flash('status', 'No ha sido posible ejecutar la sentencia en el servidor.');
-            return 'Error al ejecutar comando ' . $th;
+            return 'Error al ejecutar comando: ' . $th;
         }
     }
 
