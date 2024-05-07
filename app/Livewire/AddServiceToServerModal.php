@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Service;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class AddServiceToServerModal extends Component
 {
@@ -13,6 +14,7 @@ class AddServiceToServerModal extends Component
     public $search;
     public $statusMessage;
 
+    #[On('serviceRemovedFromServer')]
     public function mount()
     {
         $allServices = Service::all();
@@ -26,7 +28,6 @@ class AddServiceToServerModal extends Component
         $this->services = $availableServices;
     }
 
-
     public function render()
     {
         return view('livewire.add-service-to-server-modal');
@@ -38,21 +39,20 @@ class AddServiceToServerModal extends Component
      * @param string $search
      * @return void
      */
-    public function lookUp(string $search)
+    public function lookUp()
     {
         $this->showModal = true;
 
         $currentServices = $this->server->services;
 
-        $matchingServices = Service::where('name', 'like', '%' . $search . '%')
-            ->orWhere('service_name', 'like', '%' . $search . '%')
+        $matchingServices = Service::where('name', 'like', '%' . $this->search . '%')
+            ->orWhere('service_name', 'like', '%' . $this->search . '%')
             ->get();
 
         $this->services = $matchingServices->reject(function ($service) use ($currentServices) {
             return $currentServices->contains($service);
         });
 
-        $this->render();
     }
 
 
@@ -67,13 +67,12 @@ class AddServiceToServerModal extends Component
         $this->showModal = true;
         try {
             $service->servers()->attach($this->server);
-            $this->statusMessage = 'Service added to server successfully';
+            $this->statusMessage = 'Servicio añadido correctamente';
         } catch (\Throwable $th) {
-            $this->statusMessage = 'Unable to add service to server: ' . $th;
+            $this->statusMessage = 'No ha sido posible añadir servicio';
         } finally {
             $this->dispatch('serverAddedToService');
             $this->mount();
-            $this->render();
         }
     }
 }

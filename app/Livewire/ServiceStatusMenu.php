@@ -13,6 +13,7 @@ class ServiceStatusMenu extends Component
     public $services;
 
     #[On('serverAddedToService')]
+    #[On('serviceRemovedFromServer')]
     public function render()
     {
         $this->services = $this->server->services()->get();

@@ -16,7 +16,7 @@ class ServiceStatus extends Component
     public $selectedCommand;
     public $arguments;
     public $commandOutput;
-    
+
 
     public function render()
     {
@@ -67,6 +67,17 @@ class ServiceStatus extends Component
         $commandController = new CommandController();
         $this->commandOutput = $commandController->executeCommand($this->server, $this->selectedCommand, $this->arguments);
         $this->render();
+    }
+
+    public function removeService()
+    {
+        try {
+            $this->server->services()->detach($this->service);
+            $this->dispatch('serviceRemovedFromServer');
+            session()->flash('status', 'Servicio removido del servidor.');
+        } catch (\Throwable $th) {
+            session()->flash('status', 'No ha sido posible remover el servicio del servidor.');
+        }
     }
 
 }

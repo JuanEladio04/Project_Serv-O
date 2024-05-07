@@ -23,6 +23,9 @@
     </div>
 
     @if ($show)
+        <button class="accentButton" wire:click='removeService'>
+            <i class="fa-solid fa-minus"></i>
+        </button>
         <div class="grid grid-cols-6 my-5">
             <select name="" id="" class="col-span-5 text-xl" wire:model.live='selectedCommandId'
                 wire:change="parseCommand">
