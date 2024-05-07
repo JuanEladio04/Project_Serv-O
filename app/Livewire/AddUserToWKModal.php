@@ -35,11 +35,14 @@ class AddUserToWKModal extends Component
         $this->showModal = true;
         try {
             $newUser = User::where('email', $this->email)->first();
-            if ($this->users->contains($newUser)) {
-                $this->wkStatus = ('Ese usuario ya pertenece a este espacio de trabajo');
-            } else if ($newUser == Auth::user()) {
+
+            if ($newUser == Auth::user()) {
                 $this->wkStatus = ('No te puedes añadir a ti mismo');
+                $this->reset(['email']);
+            } else if ($this->users->contains($newUser)) {
+                $this->wkStatus = ('Ese usuario ya pertenece a este espacio de trabajo');
                 $this->email = '';
+                $this->reset(['email']);
             } else if ($newUser != null) {
                 $this->workSpace->users()->attach($newUser);
                 $this->mount();

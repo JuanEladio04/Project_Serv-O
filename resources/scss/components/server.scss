@@ -1,9 +1,15 @@
 .server {
     article {
-        margin-left: 5rem;
-        margin-right: 5rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
+        border-bottom: 0.2vh solid $cBackground;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        @media (min-width: theme("screens.lg")) {
+            margin-left: 5rem;
+            margin-right: 5rem;
+        }
 
         border-bottom: 0.2vh solid $cBackground;
     }

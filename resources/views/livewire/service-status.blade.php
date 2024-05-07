@@ -34,7 +34,7 @@
 
             <button class="col-span-1 secondaryButton ms-5" wire:click='executeCommand' wire:loading.attr='disabled'>
                 <i class="fa-solid fa-play"></i>
-                Ejecutar
+                <span class="hidden sm:inline"> Ejecutar</span>
             </button>
         </div>
         @isset($selectedCommand)
