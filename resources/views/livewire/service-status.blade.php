@@ -9,7 +9,7 @@
                 <i
                     class="color-{{ $serviceStatus ? 'cSecondary' : 'cBackground' }} ms-2 fa-solid fa-circle text-4xl"></i>
             </p>
-            <x-loading-loop>w-20 inline</x-loading-loop>
+            <x-loading-loop>w-14 inline</x-loading-loop>
 
             <button class="inline items-center">
                 <span class="{{ $show ? 'hidden' : 'inline-block' }} text-4xl material-symbols-outlined">
@@ -32,7 +32,7 @@
                 @endforeach
             </select>
 
-            <button class="col-span-1 secondaryButton ms-5" wire:click='executeCommand'>
+            <button class="col-span-1 secondaryButton ms-5" wire:click='executeCommand' wire:loading.attr='disabled'>
                 <i class="fa-solid fa-play"></i>
                 Ejecutar
             </button>
@@ -58,8 +58,7 @@
                 </div>
 
                 <textarea class="block w-full resize-none text-2xl" name="" id="" cols="30" rows="10" disabled
-                    wire:model='commandOutput'>
-                    {{ $commandOutput }}
+                    wire:model.live='commandOutput'>
                 </textarea>
             </div>
         @endisset
