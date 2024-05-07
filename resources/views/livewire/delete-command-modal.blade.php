@@ -1,14 +1,13 @@
-<div class="inline-block">
-    <button class="accentButton" data-modal-target="delete-modal-{{ $command->id }}"
-        data-modal-toggle="delete-modal-{{ $command->id }}">
+<div x-data="{ showModal: false }" class="inline-block">
+    <button @click="showModal = true" class="accentButton">
         <span class="material-symbols-outlined">
             delete
         </span>
         Eliminar
     </button>
 
-    <div id="delete-modal-{{ $command->id }}" tabindex="-1"
-        class="deleteModal hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div x-show="showModal" @click.away="showModal = false" id="delete-modal-{{ $command->id }}" tabindex="-1"
+        class="deleteModal fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-gray-800 bg-opacity-50">
         <div class="relative p-4 w-full max-w-md max-h-full">
             <div class="modal-div relative bg-cPrimary shadow text-center">
                 <span class="material-symbols-outlined block text-7xl">
@@ -20,11 +19,8 @@
                     </p>
                 </div>
                 <div class="grid grid-cols-2 text-center">
-                    <button class="secondaryButton" wire:click='performDelete'
-                        data-modal-target="delete-modal-{{ $command->id }}"
-                        data-modal-toggle="delete-modal-{{ $command->id }}">Eliminar</button>
-                    <button class="accentButton" data-modal-target="delete-modal-{{ $command->id }}"
-                        data-modal-toggle="delete-modal-{{ $command->id }}">Cancelar</button>
+                    <button @click="showModal = false" wire:click="performDelete" class="secondaryButton">Eliminar</button>
+                    <button @click="showModal = false" class="accentButton">Cancelar</button>
                 </div>
             </div>
         </div>

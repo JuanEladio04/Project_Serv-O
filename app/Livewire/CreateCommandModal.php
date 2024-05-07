@@ -45,7 +45,6 @@ class CreateCommandModal extends Component
 
             $newCommand->save();
 
-            $this->render();
             $this->dispatch('reloadCommands');
             $this->statusMessage = 'Comando añadido correctamente.';
             $this->resetInputFields();

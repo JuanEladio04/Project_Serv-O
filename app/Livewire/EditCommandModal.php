@@ -7,7 +7,6 @@ use Livewire\Attributes\On;
 
 class EditCommandModal extends Component
 {
-    public $showModal;
     public $command;
     public $statusMessage;
     public $name;
@@ -32,8 +31,6 @@ class EditCommandModal extends Component
 
     public function performUpdate()
     {
-        $this->showModal = true;
-
         $this->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -48,7 +45,7 @@ class EditCommandModal extends Component
             $this->command->command = $this->commandStr;
             $this->command->save();
             $this->statusMessage = 'Comando actualizado con éxito.';
-            $this->dispatch('reloadCommands');
+            $this->dispatch('reloadCommand.' . $this->command->id);
         } catch (\Throwable $th) {
             $this->statusMessage = 'No ha sido posible actualizar el comando.';
         }

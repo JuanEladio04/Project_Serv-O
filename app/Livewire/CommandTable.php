@@ -2,13 +2,17 @@
 
 namespace App\Livewire;
 
-use App\Models\Command;
 use App\Models\Service;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\Features\SupportPagination\HandlesPagination;
+use Livewire\WithoutUrlPagination;
+use Livewire\WithPagination;
 
 class CommandTable extends Component
 {
+    use WithPagination, WithoutUrlPagination;
+
     public Service $service;
     public $search;
 

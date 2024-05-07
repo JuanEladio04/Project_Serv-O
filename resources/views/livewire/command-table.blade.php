@@ -1,9 +1,9 @@
 <div class="commandTable bg-cPrimary py-20 shadow-md">
 
-    <div class="grid sm:grid-cols-2 mx-10 justify-center items-center">
-        <div class="grid-cols-3">
+    <div class="mx-10 justify-center items-center">
+        <div class="grid grid-cols-2">
 
-            <div class="input-wrapper mt-4 m-7 inline-block w-1/2 col-span-2">
+            <div class="input-wrapper mt-4 sm:m-7 inline-block sm:w-1/2">
                 <div class="relative z-0">
                     <input type="search" wire:model.live='search'
                         class="block py-2.5 px-3 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer"
@@ -15,19 +15,15 @@
                 </div>
             </div>
 
-            {{-- <button class="secondaryButton col-span-1">
-                Buscar
-            </button> --}}
-        </div>
-
-        <div class="text-right align-middle">
-            <button class="secondaryButton" data-modal-target="createCommandModal"
-                data-modal-toggle="createCommandModal">
-                <span class="material-symbols-outlined">
-                    add
-                </span>
-                Registrar comando
-            </button>
+            <div class="text-right align-middle">
+                <button class="secondaryButton" data-modal-target="createCommandModal"
+                    data-modal-toggle="createCommandModal">
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                    Registrar comando
+                </button>
+            </div>
         </div>
     </div>
 
