@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CommandController extends Controller
 {
-    public function executeCommand(Server $server, Command $command)
+    public function executeCommand(Server $server, Command $command, $arguments)
     {
         $encryptionHelper = new EncryptionHelper;
 
@@ -25,7 +25,7 @@ class CommandController extends Controller
                 return 'Error al comunicar con el servidor';
             }
 
-            $ssh->write('sudo -S ' . $command->command . "\n");
+            $ssh->write('sudo -S ' . $command->command . ' ' .  $arguments . "\n");
             $ssh->read('[sudo] password for ' . $server->user_root . ':');
             $ssh->write($encryptionHelper->decryptPassword($server->password, env('ENCRYPTION_KEY')) . "\n");
             $output = $ssh->read();

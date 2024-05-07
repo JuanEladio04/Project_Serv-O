@@ -16,6 +16,7 @@ class ServiceStatus extends Component
     public $selectedCommand;
     public $arguments;
     public $commandOutput;
+    
 
     public function render()
     {
@@ -64,7 +65,7 @@ class ServiceStatus extends Component
     public function executeCommand()
     {
         $commandController = new CommandController();
-        $this->commandOutput = $commandController->executeCommand($this->server, $this->selectedCommand);
+        $this->commandOutput = $commandController->executeCommand($this->server, $this->selectedCommand, $this->arguments);
         $this->render();
     }
 

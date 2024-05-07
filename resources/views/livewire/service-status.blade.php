@@ -5,10 +5,11 @@
         </p>
 
         <div class="text-right inline-block ">
-            <p class="inline-block align-middle">
+            <p class="inline-block align-middle" wire:loading.class='hidden'>
                 <i
                     class="color-{{ $serviceStatus ? 'cSecondary' : 'cBackground' }} ms-2 fa-solid fa-circle text-4xl"></i>
             </p>
+            <x-loading-loop>w-20 inline</x-loading-loop>
 
             <button class="inline items-center">
                 <span class="{{ $show ? 'hidden' : 'inline-block' }} text-4xl material-symbols-outlined">
@@ -25,7 +26,7 @@
         <div class="grid grid-cols-6 my-5">
             <select name="" id="" class="col-span-5 text-xl" wire:model.live='selectedCommandId'
                 wire:change="parseCommand">
-                <option value="" selected>Selecciona un comándo</option>
+                <option selected>Selecciona un comándo</option>
                 @foreach ($commands as $command)
                     <option value="{{ $command->id }}">{{ $command->name }}: {{ $command->command }}</option>
                 @endforeach
@@ -60,9 +61,6 @@
                     wire:model='commandOutput'>
                     {{ $commandOutput }}
                 </textarea>
-                <p>
-                    {{ $commandOutput }}
-                </p>
             </div>
         @endisset
     @endif
