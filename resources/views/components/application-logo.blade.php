@@ -1,1 +1,1 @@
-<img src="/img/pageLogo/BigLogo.png" alt="Logo de la aplicación" class="{{ $slot }}" wire:loading>
+<img src="/img/pageLogo/BigLogo.png" alt="Logo de la aplicación" class="{{ $slot }}">
