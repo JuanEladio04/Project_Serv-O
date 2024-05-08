@@ -67,6 +67,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function commands()
     {
         return $this->belongsToMany(Command::class)
-            ->withPivot('state', 'time', 'failure_traces');
+            ->withPivot('state', 'date', 'time', 'failure_traces');
     }
 }

@@ -25,7 +25,7 @@
 
                     <div :class="{ 'block': openWKMenu, 'hidden': !openWKMenu }" class="overflow-y-auto overflow-x-hidden h-auto">
                         @foreach (Auth::user()->WorkSpaces as $workSpace)
-                            <x-responsive-nav-link :class="'inline-flex items-center gap-2 ml-5'" :href="route('workSpace.show', [$workSpace->id])" :active="request()->routeIs('workSpace.create')">
+                            <x-responsive-nav-link :class="'inline-flex items-center gap-2 ml-5'" :href="route('workSpace.show', [$workSpace->id])" :active="request()->routeIs('workSpace.show', [$workSpace->id])">
                                 <span class="material-symbols-outlined">
                                     radio_button_checked
                                 </span>
@@ -36,10 +36,10 @@
                     <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
                         {{ 'Gestión de usuarios' }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('serviceGestion')">
+                    <x-responsive-nav-link :href="route('service.index')" :active="request()->routeIs('service.index')">
                         {{ 'Gestión de servicios' }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('comandLog')">
+                    <x-responsive-nav-link :href="route('command.index')" :active="request()->routeIs('command.index')">
                         {{ 'Registro de comandos' }}
                     </x-responsive-nav-link>
                     <div class="h-full bg-slate-50 flex flex-col justify-end">

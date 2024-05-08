@@ -29,6 +29,7 @@ class Command extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)
+        ->withPivot('state', 'date', 'time', 'failure_traces');
     }
 }

@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class CommandController extends Controller
 {
+
+    public function index(){
+        $commands = Auth::user()->commands()->orderBy('created_at', 'desc')->paginate(30);
+        return view('command.index')->with('commands', $commands);
+    }
+
     public function executeCommand(Server $server, Command $command, $arguments)
     {
         $encryptionHelper = new EncryptionHelper;

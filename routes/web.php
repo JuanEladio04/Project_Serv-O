@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommandController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServerController;
@@ -19,5 +20,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('workSpace', WorkSpaceController::class)->middleware('auth');
 Route::resource('server', ServerController::class)->middleware(['auth', 'verified']);
 Route::resource('service', ServiceController::class)->middleware(['auth', 'verified']);
+Route::resource('command', CommandController::class)->middleware('auth');
 
 require __DIR__ . '/auth.php';
