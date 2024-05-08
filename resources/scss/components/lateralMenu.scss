@@ -1,7 +1,10 @@
 .lat-menu{
-    margin-top: -2vh;
-    margin-bottom: -2vh;
+    margin-top: 10vh;
     position: absolute;
-    z-index: 2;
+    z-index: 31;
     box-shadow: 0 1vh 1.2vh rgba(0, 0, 0, 0.1);
+
+    .authSection{
+        border-top: 0.2vh solid $cBackground;
+    }
 }

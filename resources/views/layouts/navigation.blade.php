@@ -7,7 +7,8 @@
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
                         <a href="{{ route('index') }}">
-                            <x-application-logo class="block h-9 w-auto fill-current color-cPrimary">w-20</x-application-logo>
+                            <x-application-logo
+                                class="block h-9 w-auto fill-current color-cPrimary">w-20</x-application-logo>
                         </a>
                     </div>
 
@@ -25,7 +26,7 @@
                                     {{ 'Gestión de usuarios' }}
                                 </x-nav-link>
                                 <x-nav-link :href="route('service.index')" :active="request()->routeIs('service.index')">
-                                    {{ 'Gestión de servicios'   }}
+                                    {{ 'Gestión de servicios' }}
                                 </x-nav-link>
                             @endif
                             <x-nav-link :href="route('command.index')" :active="request()->routeIs('command.index')">
@@ -40,7 +41,7 @@
                         <x-dropdown align="right">
                             <x-slot name="trigger">
                                 <button
-                                    class="wk-select color-cSecondary cSubTitle inline-flex items-center justify-center text-xl">
+                                    class="wk-select color-cSecondary cSubTitle inline-flex text-left text-xl w-72">
                                     <span class="material-symbols-outlined">
                                         expand_more
                                     </span>
@@ -110,15 +111,13 @@
 
                 <!-- Hamburger -->
                 <div class="me-2 flex items-center sm:hidden">
-                    <button @click="openMenu = !openMenu"
+                    <button data-drawer-target="side-bar-menu" data-drawer-toggle="side-bar-menu"
+                        aria-controls="side-bar-menu" type="button"
                         class="inline-flex items-center justify-center p-2 rounded-md color-cSecondary bg-cBackgrund transition duration-150 ease-in-out">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path :class="{ 'hidden': openMenu, 'inline-flex': !openMenu }" class="inline-flex"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
-                            <path :class="{ 'hidden': !openMenu, 'inline-flex': openMenu }" class="hidden"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
+
                         </svg>
                     </button>
                 </div>
@@ -126,5 +125,5 @@
         </div>
     </nav>
 
-    @include('layouts.lateralMenu', ['openMenu' => 'openMenu'])
+    @include('layouts.lateralMenu')
 </div>
