@@ -37,7 +37,7 @@
                 @endforeach
             </select>
 
-            <button class="col-span-1 secondaryButton ms-5" wire:click='executeCommand' wire:loading.attr='disabled'>
+            <button class="col-span-1 secondaryButton ms-5" wire:click='executeCommand' wire:loading.attr='disabled' @if ($selectedCommand == '') disabled @endif>
                 <i class="fa-solid fa-play"></i>
                 <span class="hidden sm:inline"> Ejecutar</span>
             </button>
