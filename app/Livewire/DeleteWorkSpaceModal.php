@@ -18,6 +18,7 @@ class DeleteWorkSpaceModal extends Component
     public function performDelete(){
         try {
             $this->workSpace->users()->detach();
+            $this->workSpace->servers()->delete();
             $this->workSpace->delete();
             return redirect()->route('index')->with('status', 'Espacio de trabajo eliminado correctamente.');
             

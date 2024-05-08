@@ -21,6 +21,7 @@ class DeleteServerModal extends Component
     {
         try {
             $this->server->delete();
+            $this->server->services()->detach();
             return redirect()->route('workSpace.show', [$this->server->workSpace->id])->with('status', 'Servidor eliminado correctamente.');
 
         } catch (\Throwable $th) {
