@@ -1,7 +1,7 @@
 <section class="space-y-6">
     <header>
         <h2 class="text-lg font-medium color-cTExt">
-            {{ __('Eliminar') }}
+            Eliminar cuenta
         </h2>
     </header>
 

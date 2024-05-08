@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('workSpace', WorkSpaceController::class)->middleware('auth');
-Route::resource('server', ServerController::class)->middleware('auth');
-Route::resource('service', ServiceController::class)->middleware('auth');
+Route::resource('server', ServerController::class)->middleware(['auth', 'verified']);
+Route::resource('service', ServiceController::class)->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';
