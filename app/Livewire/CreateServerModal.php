@@ -43,14 +43,14 @@ class CreateServerModal extends Component
             $encryptionHelper = new EncryptionHelper();
             $server->password = $encryptionHelper->encryptPassword($this->password, env('ENCRYPTION_KEY'));
 
-            if ($this->checkAvailability($server)) {
+            // if ($this->checkAvailability($server)) {
                 $server->workSpace()->associate($this->workSpace->id);
                 $server->save();
 
                 $this->dispatch('newServerAdded');
                 $this->statusMessage = 'Servidor añadido correctamente.';
                 $this->resetInputFields();
-            }
+            // }
         } catch (\Throwable $th) {
             $this->statusMessage = 'No ha sido posible añadir servidor. ' . $th;
         }
@@ -93,6 +93,7 @@ class CreateServerModal extends Component
                 }
             }
         }
+        return true;
     }
 
 }

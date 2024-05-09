@@ -58,7 +58,7 @@ class Service extends Model
                 return false;
             }
 
-            $output = $ssh->exec('service ' . $this->service_name . ' status');
+            $output = $ssh->exec('systemctl status ' . $this->service_name);
             $isActive = strpos(strtolower($output), 'running') !== false;
             $ssh->disconnect();
 
