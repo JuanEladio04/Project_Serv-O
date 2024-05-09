@@ -24,8 +24,9 @@ class ServiceController extends Controller
         return view('service.index')->with('services', $services);
     }
 
-    public function show(Service $service)
+    public function show($id)
     {
+        $service = Service::find($id);
         return view('service.show')->with('service', $service);
     }
 

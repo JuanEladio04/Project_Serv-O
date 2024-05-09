@@ -31,7 +31,7 @@
         <div class="grid grid-cols-6 my-5">
             <select name="" id="" class="col-span-5 text-xl" wire:model.live='selectedCommandId'
                 wire:change="parseCommand">
-                <option selected>Selecciona un comándo</option>
+                <option selected>Selecciona un comando</option>
                 @foreach ($commands as $command)
                     <option value="{{ $command->id }}">{{ $command->name }}: {{ $command->command }}</option>
                 @endforeach

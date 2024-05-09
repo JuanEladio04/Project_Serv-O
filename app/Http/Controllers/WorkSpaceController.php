@@ -62,7 +62,7 @@ class WorkSpaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show($id)
     {
         try {
             $workSpace = WorkSpace::find($id);
@@ -79,7 +79,7 @@ class WorkSpaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit($id)
     {
         $workSpace = WorkSpace::find($id);
         return view('workSpace.edit')->with('workSpace', $workSpace);
@@ -92,9 +92,10 @@ class WorkSpaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(WorkSpaceRequest $request, WorkSpace $workSpace)
+    public function update(WorkSpaceRequest $request, $id)
     {
         try {
+            $workSpace = WorkSpace::find($id);
             DB::beginTransaction();
 
             $validatedData = $request->validated();

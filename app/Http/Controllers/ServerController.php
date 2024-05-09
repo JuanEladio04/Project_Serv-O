@@ -18,7 +18,7 @@ class ServerController extends Controller
      *
      * @param  int  $id
      */
-    public function show(int $id)
+    public function show($id)
     {
         try {
             $server = Server::find($id);
@@ -39,7 +39,7 @@ class ServerController extends Controller
      *
      * @param  int  $id
      */
-    public function edit(int $id)
+    public function edit($id)
     {
         try {
             $server = Server::find($id);
@@ -63,8 +63,9 @@ class ServerController extends Controller
      * @param  \App\Http\Requests\ServerRequest  $request
      * @param  \App\Models\Server  $server
      */
-    public function update(ServerRequest $request, Server $server)
+    public function update(ServerRequest $request, int $server)
     {
+        $server = Server::find($server);
         DB::beginTransaction();
 
         $validatedData = $request->validated();
