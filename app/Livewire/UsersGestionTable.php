@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
@@ -13,6 +14,7 @@ class UsersGestionTable extends Component
 
     public $search = '';
 
+    #[On('userDeleted')]
     public function render()
     {
         $users = User::where(function ($query) {

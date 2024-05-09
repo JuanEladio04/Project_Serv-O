@@ -53,12 +53,7 @@
                                     Editar
                                 </button>
                             </a>
-                            <button class="accentButton">
-                                <span class="material-symbols-outlined">
-                                    delete
-                                </span>
-                                Eliminar
-                            </button>
+                            <livewire:DeleteUserModal :$user :key="'delete-' . $user->id" />
                         </td>
                     </tr>
                 @endforeach
