@@ -1,9 +1,6 @@
 <x-app-layout>
-    <div class="bg-cPrimary my-14 px-20 py-10 shadow-md">
-        <div class="grid grid-cols-2 justify-center items-center">
-            <p class="text-7xl cTitle">
-                {{ $service->name }}
-            </p>
+    <div class="bg-cPrimary my-14 sm:px-20 px-10 py-10 shadow-md">
+        <div class="grid items-center">
             <div class="text-right">
                 <x-dropdown align="right">
                     <x-slot name="trigger">
@@ -36,6 +33,9 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            <h1 class="text-4xl sm:text-5xl w-full overflow-hidden my-5 p-1">
+                {{ $service->name }}
+            </h1>
         </div>
         <p class="text-4xl cSubTitle mt-5">
             {{ $service->service_name }}
