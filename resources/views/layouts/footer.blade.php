@@ -1,8 +1,8 @@
 <footer class="footer bg-cPrimary color-cText p-4 justify-center text-center grid sm:grid-cols-3 grid-cols-1 mt-10">
     <div class="order-2 sm:order-1 sm:text-xl text-2xl py-5">
-        <a class="cSubTitle block" href="">Terminos y condiciones</a>
-        <a class="cSubTitle block" href="">Política de coockies</a>
-        <a class="cSubTitle block" href="">Política de privacidad</a>
+        <a class="cSubTitle block" href="termsAndConditions">Terminos y condiciones</a>
+        <a class="cSubTitle block" href="termsAndConditions#politicaDeCookies">Política de coockies</a>
+        <a class="cSubTitle block" href="termsAndConditions#politicaDePrivacidad">Política de privacidad</a>
     </div>
     <div class="flex justify-center items-center order-1 sm:order-2 py-5"> 
         <a href="{{ route('index') }}">

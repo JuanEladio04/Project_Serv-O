@@ -39,4 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('user', UserController::class)->middleware([AuthAdmin::class, 'verified']);
 });
 
+Route::get('/termsAndConditions', function () {
+    return view('legal.terms-and-conditions');
+})->name('termsAndConditions');
+
 require __DIR__ . '/auth.php';
