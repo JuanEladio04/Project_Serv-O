@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommandController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthAdmin;
 use App\Http\Middleware\CheckWorkSpaceRole;
 use App\Http\Middleware\CheckWorkSpaceServer;
@@ -33,9 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('server', ServerController::class)->only('edit', 'update')
     ->middleware(CheckWorkSpaceServerRole::class);
 
-    Route::resource('service', ServiceController::class)->middleware(['verified', AuthAdmin::class]);
-
+    Route::resource('service', ServiceController::class)->middleware([AuthAdmin::class, 'verified']);
     Route::resource('command', CommandController::class);
+    Route::resource('user', UserController::class)->middleware([AuthAdmin::class, 'verified']);
 });
 
 require __DIR__ . '/auth.php';

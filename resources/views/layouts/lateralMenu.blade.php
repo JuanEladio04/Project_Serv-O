@@ -36,7 +36,7 @@
                         </x-responsive-nav-link>
                     @endforeach
                 </div>
-                <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
+                <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                     {{ 'Gestión de usuarios' }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('service.index')" :active="request()->routeIs('service.index')">

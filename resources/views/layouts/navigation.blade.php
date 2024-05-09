@@ -22,7 +22,7 @@
                                 {{ 'Crear espacio de trabajo' }}
                             </x-nav-link>
                             @if (Auth::user()->role == 'admin')
-                                <x-nav-link :href="route('index')" :active="request()->routeIs('userGestion')">
+                                <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                                     {{ 'Gestión de usuarios' }}
                                 </x-nav-link>
                                 <x-nav-link :href="route('service.index')" :active="request()->routeIs('service.index')">

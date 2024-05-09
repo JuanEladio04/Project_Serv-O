@@ -1,4 +1,4 @@
-<div class="commandTable bg-cPrimary py-20 shadow-md">
+<div class="gestionTable bg-cPrimary py-20 shadow-md">
 
     <div class="mx-10 justify-center items-center">
         <div class="grid grid-cols-2">
