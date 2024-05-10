@@ -9,7 +9,6 @@ use App\Helpers\EncryptionHelper;
 
 class CreateServerModal extends Component
 {
-    public $showModal = false;
     public $workSpace;
     public $statusMessage;
     public $name;
@@ -25,7 +24,6 @@ class CreateServerModal extends Component
 
     public function performInsert()
     {
-        $this->showModal = true;
         $this->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',

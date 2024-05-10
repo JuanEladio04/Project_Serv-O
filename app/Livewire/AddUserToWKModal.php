@@ -32,7 +32,6 @@ class AddUserToWKModal extends Component
 
     public function addUser()
     {
-        $this->showModal = true;
         try {
             $newUser = User::where('email', $this->email)->first();
 
@@ -59,7 +58,6 @@ class AddUserToWKModal extends Component
 
     public function removeUserFromWK(User $user)
     {
-        $this->showModal = true;
         try {
             $this->workSpace->users()->detach($user->id);
             $this->mount();
@@ -71,7 +69,6 @@ class AddUserToWKModal extends Component
 
     public function updateRole(User $user)
     {
-        $this->showModal = true;
         try {
             $pivotEntry = $user->workSpaces()->where('work_space_id', $this->workSpace->id)->first();
 
