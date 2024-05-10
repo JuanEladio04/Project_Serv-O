@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Auth;
 class CommandController extends Controller
 {
 
-    public function index(){
-        $commands = Auth::user()->commands()->orderBy('created_at', 'desc')->paginate(30);
+    public function index()
+    {
+        $commands = Auth::user()->commands()->orderBy('date', 'desc')->orderBy('time', 'desc')->paginate(30);
         return view('command.index')->with('commands', $commands);
     }
 
@@ -31,7 +32,7 @@ class CommandController extends Controller
                 return 'Error al comunicar con el servidor';
             }
 
-            $ssh->write('sudo -S ' . $command->command . ' ' .  $arguments . "\n");
+            $ssh->write('sudo -S ' . $command->command . ' ' . $arguments . "\n");
             $ssh->read('[sudo] password for ' . $server->user_root . ':');
             $ssh->write($encryptionHelper->decryptPassword($server->password, env('ENCRYPTION_KEY')) . "\n");
             $output = $ssh->read();
@@ -58,7 +59,7 @@ class CommandController extends Controller
 
         } catch (\Throwable $th) {
             session()->flash('status', 'No ha sido posible ejecutar la sentencia en el servidor.');
-            return 'Error al ejecutar comando: ' . $th;
+            return 'Error al ejecutar comando.';
         }
     }
 
