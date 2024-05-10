@@ -67,6 +67,7 @@ class ServiceStatus extends Component
     {
         $commandController = new CommandController();
         $this->commandOutput = $commandController->executeCommand($this->server, $this->selectedCommand, $this->arguments);
+        $this->reset('arguments');
         $this->render();
     }
 
