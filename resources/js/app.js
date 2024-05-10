@@ -1,7 +1,3 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+import '/node_modules/flowbite/dist/flowbite.min'

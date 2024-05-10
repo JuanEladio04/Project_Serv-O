@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('commands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('command');
-            $table->string('operation');
+            $table->enum('operation', ['install', 'uninstall', 'operation'])->default('operation');
             $table->unsignedBigInteger('service_id');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('service_id')->references('id')->on('services');

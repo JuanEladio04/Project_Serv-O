@@ -1,0 +1,17 @@
+#add-user-to-wk-modal{
+    select{
+        border: none;
+        color: $cText;
+    }
+
+    .input-wrapper{
+        input{
+            border: 0.4vh solid $cSecondary;
+            border-radius: 1vh;
+            padding: 1vh;
+            &:focus{
+                border: 0.4vh solid $cAccent;
+            }
+        }
+    }
+}

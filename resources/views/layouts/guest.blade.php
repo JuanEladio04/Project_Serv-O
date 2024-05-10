@@ -8,27 +8,29 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <!-- Scripts -->
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    <script src="https://kit.fontawesome.com/d9c51a1842.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="font-sans color-cText antialiased">
+<body class="font-sans color-cText antialiased bg-cBackground">
     @include('layouts.navigation')
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-cBackground">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
 
         <div>
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo class="block h-9 w-auto fill-current color-cPrimary">w-48</x-application-logo>
             </a>
         </div>
 
-        <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-            {{ $slot }}
-        </div>
+        {{ $slot }}
     </div>
-    @include('layouts.footer')
+    <livewire:StatusAlert />
 
+    @include('layouts.footer')
 </body>
 
 </html>

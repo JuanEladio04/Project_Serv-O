@@ -14,7 +14,7 @@ $cBackground: #d7d7d7;
 }
 .hover-cPrimary{
     :hover{
-        background-color: $cSecondary;
+        color: $cSecondary;
     }
 }
 
@@ -29,7 +29,7 @@ $cBackground: #d7d7d7;
 
 .hover-cSecondary{
     :hover{
-        background-color: $cPrimary;
+        color: $cAccent;
     }
 }
 

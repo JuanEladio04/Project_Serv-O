@@ -1,0 +1,15 @@
+.gestionTable {
+    .tableContainer {
+        overflow-x: scroll;
+        table {
+            border: 0.3vh solid $cBackground;
+            border-collapse: collapse;
+            tr,
+            th,
+            td {
+                border: 0.3vh solid $cBackground;
+                padding: 1vh;
+            }
+        }
+    }
+}
