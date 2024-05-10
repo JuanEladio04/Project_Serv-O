@@ -1,6 +1,6 @@
 <div>
-    <div id="addServiceToServerModal" tabindex="-1"
-        class="{{ $showModal ? 'flex' : 'hidden' }} overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div id="addServiceToServerModal" tabindex="-1" wire:ignore.self
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative bg-cPrimary rounded-2xl shadow p-4 w-full max-w-lg max-h-full">
             <div class="relative text-center py-5">
                 <h3 class="text-4xl">
@@ -37,7 +37,7 @@
                 @endisset
                 <button class="accentButton" data-modal-target="addServiceToServerModal"
                     data-modal-toggle="addServiceToServerModal">
-                    Cancelar
+                    Cerrar
                 </button>
 
             </div>

@@ -9,7 +9,6 @@ use Livewire\Attributes\On;
 class AddServiceToServerModal extends Component
 {
     public $services;
-    public $showModal;
     public $server;
     public $search;
     public $statusMessage;
@@ -41,8 +40,6 @@ class AddServiceToServerModal extends Component
      */
     public function lookUp()
     {
-        $this->showModal = true;
-
         $currentServices = $this->server->services;
 
         $matchingServices = Service::where('name', 'like', '%' . $this->search . '%')
@@ -55,7 +52,6 @@ class AddServiceToServerModal extends Component
 
     }
 
-
     /**
      * This function is used to add a service to a server
      *
@@ -64,7 +60,6 @@ class AddServiceToServerModal extends Component
      */
     public function addServiceToServer(Service $service)
     {
-        $this->showModal = true;
         try {
             $service->servers()->attach($this->server);
             $this->statusMessage = 'Servicio añadido correctamente';
