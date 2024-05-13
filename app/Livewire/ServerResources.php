@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ServerResources extends Component
@@ -11,11 +12,7 @@ class ServerResources extends Component
     public $totalMemory = '0';
     public $usedMemory = '0';
     public $percentUsedMemory = '0';
-
-    public function mount()
-    {
-        $this->getResources();
-    }
+    public $showResources = false;
 
     /**
      * Render the component.
@@ -29,16 +26,35 @@ class ServerResources extends Component
 
     public function getResources()
     {
-        if ($this->server->ping()) {
-            $this->cpuUsage = $this->server->getCpuUsage();
-            $this->totalMemory = $this->server->getMemory();
-            $this->usedMemory = $this->server->getMemoryUsage();
-            if ($this->usedMemory && $this->totalMemory) {
-                $this->percentUsedMemory = ($this->usedMemory * 100) / $this->totalMemory;
-            }
+        $this->cpuUsage = $this->server->getCpuUsage();
+        $this->totalMemory = $this->server->getMemory();
+        $this->usedMemory = $this->server->getMemoryUsage();
+        if ($this->usedMemory && $this->totalMemory) {
+            $this->percentUsedMemory = ($this->usedMemory * 100) / $this->totalMemory;
         }
+    }
 
-        $this->dispatch('updateResourcesBar');
+
+    /**
+     * This method is triggered when a 'PingPerformed' event is received from Echo.
+     * It retrieves server resources and updates the component's properties.
+     *
+     * @return void
+     *
+     * @throws \Exception If the server is unreachable or an error occurs while retrieving resources.
+     *
+     * @On('echo:ping{server.server_dir},PingPerformed')
+     */
+    #[On('echo:ping{server.server_dir},PingPerformed')]
+    public function toggleShowResources()
+    {
+        // Retrieve server resources
+        $this->getResources();
+
+        // Set the showResources property to true to display the server resources
+        $this->showResources = true;
+
+        // Render the component
         $this->render();
     }
 }
