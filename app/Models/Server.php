@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Jobs\PerformPing;
 use App\Models\Service;
+use Illuminate\Queue\Queue;
 use phpseclib3\Net\SSH2;
 use App\Models\WorkSpace;
 use App\Helpers\EncryptionHelper;
@@ -49,13 +51,7 @@ class Server extends Model
      */
     public function ping()
     {
-        exec("ping -n 1 -w 1 $this->server_dir", $output, $result);
-
-        if ($result == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        PerformPing::dispatch($this->server_dir, $this->id);
     }
 
     /**

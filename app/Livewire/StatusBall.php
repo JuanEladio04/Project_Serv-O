@@ -2,17 +2,22 @@
 
 namespace App\Livewire;
 
+use App\Events\PingPerformed;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
 class StatusBall extends Component
 {
     public $server;
-    public $serverStatus = 'false';
+    public $serverStatus = 'loading';
+
+    public function mount()
+    {
+        $this->server->ping();
+    }
 
     public function render()
     {
-        $this->serverStatus = $this->server->ping();
         return view('livewire.status-ball');
     }
 
@@ -25,7 +30,20 @@ class StatusBall extends Component
     #[On('refreshServersState')]
     public function reloadServersState(): void
     {
-        $this->serverStatus = $this->server->ping();
-        $this->render();
+        $this->serverStatus = 'loading';
+        $this->server->ping();
+    }
+
+    /**
+     * This function is triggered when a PingPerformed event is dispatched.
+     * It handles the event and updates the server status.
+     *
+     * @param PingPerformed $event The event object containing the ping result.
+     * @return void
+     */
+    #[On('echo:ping{server.server_dir},PingPerformed')]
+    public function handlePingPerformed($event)
+    {
+        $this->serverStatus = $event['result'];
     }
 }
