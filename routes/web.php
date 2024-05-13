@@ -7,7 +7,7 @@ use App\Http\Middleware\AuthAdmin;
 use App\Http\Middleware\CheckWorkSpaceRole;
 use App\Http\Middleware\CheckWorkSpaceServer;
 use App\Http\Middleware\CheckWorkSpaceServerRole;
-use App\Http\Middleware\CheckWorkspaceUser;
+use App\Http\Middleware\CheckWorkSpaceUser;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\ProfileController;
@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('workSpace', WorkSpaceController::class);
     Route::resource('workSpace', WorkSpaceController::class)->only('show', 'edit', 'update')
-        ->middleware(CheckWorkspaceUser::class);
+        ->middleware(CheckWorkSpaceUser::class);
     Route::resource('workSpace', WorkSpaceController::class)->only('edit', 'update')
         ->middleware(CheckWorkSpaceRole::class);
 

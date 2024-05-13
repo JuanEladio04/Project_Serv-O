@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckWorkspaceUser
+class CheckWorkSpaceUser
 {
     /**
      * Handle an incoming request.
