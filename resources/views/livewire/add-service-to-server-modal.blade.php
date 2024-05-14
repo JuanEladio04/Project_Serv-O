@@ -8,7 +8,7 @@
                 </h3>
 
                 <div class="mx-10 my-5 flex justify-center">
-                    <x-CustomInput class="flex-grow" label="Buscar" name="seach" type="text" wireModel="search" />
+                    <x-custom-input class="flex-grow" label="Buscar" name="seach" type="text" wireModel="search" />
                     <button class="secondaryButton" wire:click='lookUp'>
                         Buscar
                     </button>

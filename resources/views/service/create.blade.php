@@ -7,7 +7,7 @@
     </div>
 
     <div class="w-full sm:w-1/2 mx-auto">
-        <x-customForm>
+        <x-custom-form>
 
             <h1 class="text-4xl text-center">
                 Registrar servicio
@@ -17,9 +17,9 @@
                 @csrf
 
                 <!-- Service Name -->
-                <x-CustomInput label="Nombre del servicio" name="name" type="text" value="{{ old('name') }}" />
+                <x-custom-input label="Nombre del servicio" name="name" type="text" value="{{ old('name') }}" />
                 <!-- Service tecnic name -->
-                <x-CustomInput label="Nombre técnico del servicio" name="service_name" type="text"
+                <x-custom-input label="Nombre técnico del servicio" name="service_name" type="text"
                     value="{{ old('service_name') }}" />
 
                 <button type="submit" class="bg-cAccent color-cPrimary text-2xl w-full cSubTitle mt-10">
@@ -27,7 +27,7 @@
                 </button>
 
             </form>
-        </x-customForm>
+        </x-custom-form>
     </div>
 
 </x-app-layout>

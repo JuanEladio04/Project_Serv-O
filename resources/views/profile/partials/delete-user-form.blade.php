@@ -25,7 +25,7 @@
             </p>
 
             <div class="mt-6">
-                <x-CustomInput label="Contraseña" name="password" type="password" />
+                <x-custom-input label="Contraseña" name="password" type="password" />
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
             </div>
 

@@ -3,7 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div class="sm:w-1/3 w-full p-0 m-5">
-        <x-customUserForm>
+        <x-custom-user-form>
             <h1 class="text-4xl text-center">
                 INICIAR SESIÓN
             </h1>
@@ -11,9 +11,9 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <x-CustomInput label="Correo electrónico" name="email" type="email" value="{{ old('email') }}"/>
+                <x-custom-input label="Correo electrónico" name="email" type="email" value="{{ old('email') }}"/>
 
-                <x-CustomInput label="Contraseña" name="password" type="password"/>
+                <x-custom-input label="Contraseña" name="password" type="password"/>
 
                 <!-- Remember Me -->
                 <div class="block mt-4">
@@ -37,7 +37,7 @@
                     Iniciar Sesión
                 </button>
             </form>
-        </x-customUserForm>
+        </x-custom-user-form>
     </div>
 
 </x-guest-layout>

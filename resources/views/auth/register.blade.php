@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="sm:w-1/2 w-full p-0 m-5">
 
-        <x-customUserForm>
+        <x-custom-user-form>
             <h1 class="text-4xl text-center">
                 REGISTRO
             </h1>
@@ -10,23 +10,23 @@
                 @csrf
 
                 <div class="grid sm:grid-cols-2 sm:gap-5">
-                    <x-CustomInput label="Nombre" name="name" type="text" value="{{ old('name') }}" />
+                    <x-custom-input label="Nombre" name="name" type="text" value="{{ old('name') }}" />
 
-                    <x-CustomInput label="Apellidos" name="last_name" type="text" value="{{ old('last_name') }}" />
+                    <x-custom-input label="Apellidos" name="last_name" type="text" value="{{ old('last_name') }}" />
                 </div>
 
-                <x-CustomInput label="Correo electrónico" name="email" type="email" value="{{ old('email') }}" />
+                <x-custom-input label="Correo electrónico" name="email" type="email" value="{{ old('email') }}" />
 
-                <x-CustomInput label="Contraseña" name="password" type="password" />
+                <x-custom-input label="Contraseña" name="password" type="password" />
 
-                <x-CustomInput label="Repetir contrseña" name="password_confirmation" type="password" />
+                <x-custom-input label="Repetir contrseña" name="password_confirmation" type="password" />
 
                 <div class="grid sm:grid-cols-2 gap-5 items-baseline">
 
-                    <x-CustomInput label="Numero de teléfono" name="phone_number" type="number"
+                    <x-custom-input label="Numero de teléfono" name="phone_number" type="number"
                         value="{{ old('phone_number') }}" />
 
-                    <x-CustomInput label="Fecha de nacimiento" name="birth_date" type="date"
+                    <x-custom-input label="Fecha de nacimiento" name="birth_date" type="date"
                         value="{{ old('birth_date') }}" />
                 </div>
 
@@ -40,6 +40,6 @@
                     Registrarse
                 </button>
             </form>
-        </x-customUserForm>
+        </x-custom-user-form>
     </div>
 </x-guest-layout>

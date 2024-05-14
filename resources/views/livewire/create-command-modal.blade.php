@@ -14,8 +14,8 @@
                 <x-custom-user-form>
                     <h1 class="text-center text-3xl">Nuevo comando</h1>
 
-                    <x-CustomInput label="Nombre del comando" name="name" type="text" wireModel="name" />
-                    <x-CustomInput label="Comando" name="command" type="text" wireModel="command" />
+                    <x-custom-input label="Nombre del comando" name="name" type="text" wireModel="name" />
+                    <x-custom-input label="Comando" name="command" type="text" wireModel="command" />
                     <div class="text-left mt-5">
                         <label for="operation" class="cSubTitle color-cBackground text-xl">Selecciona el tipo
                             de

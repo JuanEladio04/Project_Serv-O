@@ -13,11 +13,11 @@
         @csrf
         @method('patch')
 
-        <x-CustomInput label="Nombre" name="name" type="text" value="{{ old('name', $user->name) }}" />
-        <x-CustomInput label="Apellidos" name="last_name" type="text" value="{{ old('name', $user->last_name) }}" />
+        <x-custom-input label="Nombre" name="name" type="text" value="{{ old('name', $user->name) }}" />
+        <x-custom-input label="Apellidos" name="last_name" type="text" value="{{ old('name', $user->last_name) }}" />
 
         <div>
-            <x-CustomInput label="Email" name="email" type="email" value="{{ old('name', $user->email) }}" />
+            <x-custom-input label="Email" name="email" type="email" value="{{ old('name', $user->email) }}" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
@@ -38,8 +38,8 @@
             @endif
         </div>
 
-        <x-CustomInput label="Número de teléfono" name="phone_number" type="number" value="{{ old('name', $user->phone_number) }}" />
-        <x-CustomInput label="Fecha de nacimiento" name="birth_date" type="date" value="{{ old('name', $user->birth_date) }}" />
+        <x-custom-input label="Número de teléfono" name="phone_number" type="number" value="{{ old('name', $user->phone_number) }}" />
+        <x-custom-input label="Fecha de nacimiento" name="birth_date" type="date" value="{{ old('name', $user->birth_date) }}" />
 
         <div class="flex items-center gap-4">
             <button type="submit" class="accentButton">

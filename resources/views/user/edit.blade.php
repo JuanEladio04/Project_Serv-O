@@ -8,7 +8,7 @@
 
 
     <div class="w-full sm:w-1/2 mx-auto">
-        <x-customForm>
+        <x-custom-form>
             <h1 class="text-4xl text-center overflow-x-hidden overflow-y-hidden flex-wrap">
                 Actualizar información del usuario: <span class="block">{{ $user->name }}</span>
             </h1>
@@ -18,15 +18,15 @@
                 @method('PUT')
 
                 <!-- User's name -->
-                <x-CustomInput label="Nombre del usuario" name="name" type="text" value="{{ $user->name }}" />
+                <x-custom-input label="Nombre del usuario" name="name" type="text" value="{{ $user->name }}" />
                 <!-- User's last name -->
-                <x-CustomInput label="Apellidos del usuario" name="last_name" type="text" value="{{ $user->last_name }}" />
+                <x-custom-input label="Apellidos del usuario" name="last_name" type="text" value="{{ $user->last_name }}" />
                 <!-- User's email -->
-                <x-CustomInput label="Correo electrónico del usuario" name="email" type="email" value="{{ $user->email }}" />
+                <x-custom-input label="Correo electrónico del usuario" name="email" type="email" value="{{ $user->email }}" />
                 <!-- User's phone number -->
-                <x-CustomInput label="Número de teléfono del usuario" name="phone_number" type="number" value="{{ $user->phone_number }}" />
+                <x-custom-input label="Número de teléfono del usuario" name="phone_number" type="number" value="{{ $user->phone_number }}" />
                 <!-- User's birth date -->
-                <x-CustomInput label="Fecha de nacimiento del usuario" name="birth_date" type="date" value="{{ $user->birth_date }}" />
+                <x-custom-input label="Fecha de nacimiento del usuario" name="birth_date" type="date" value="{{ $user->birth_date }}" />
                 <!-- User's role -->
                 <select name="role" id="role" class="customSelector my-8  cSubTitle">
                     <option value="admin" @if($user->role == "admin") selected @endif>Administrador</option>
@@ -38,7 +38,7 @@
                 </button>   
 
             </form>
-        </x-customForm>
+        </x-custom-form>
     </div>
 
 </x-app-layout>
