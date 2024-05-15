@@ -29,8 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('workSpace', WorkSpaceController::class)->only('edit', 'update')
         ->middleware(CheckWorkSpaceRole::class);
 
-    Route::resource('server', ServerController::class)->middleware('verified')
-    ->middleware(CheckWorkSpaceServer::class);
+    Route::resource('server', ServerController::class)->middleware([CheckWorkSpaceServer::class, 'verified']);
     Route::resource('server', ServerController::class)->only('edit', 'update')
     ->middleware(CheckWorkSpaceServerRole::class);
 
