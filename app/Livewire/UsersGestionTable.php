@@ -28,4 +28,18 @@ class UsersGestionTable extends Component
 
         return view('livewire.users-gestion-table')->with('users', $users);
     }
+
+    public function performDelete(User $user)
+    {
+        try {
+            $user->workSpaces()->detach();
+            $user->commands()->detach();
+            $user->delete();
+            dispatch('userDeleted');
+            session()->flash('status', 'Usuario eliminado correctamente');
+
+        } catch (\Throwable $th) {
+            session()->flash('status', 'No ha sido posible eliminar el usuario');
+        }
+    }
 }
