@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
@@ -19,15 +20,18 @@ class EmailVerificationNotificationController extends Controller
             return redirect()->intended(route('index', [], false));
         }
 
-        VerifyEmail::createUrlUsing(function ($notifiable) use ($request) {
+        $user = $request->user();
+        $hash = Str::random(32); // Genera un hash aleatorio
+
+        VerifyEmail::createUrlUsing(function ($notifiable) use ($user, $hash) {
             return URL::temporarySignedRoute(
                 'verification.verify',
                 now()->addMinutes(60),
-                ['id' => $request->user()->getKey()]
+                ['id' => $user->getKey(), 'hash' => $hash] 
             );
         });
 
-        $request->user()->notify(new VerifyEmail);
+        $user->sendEmailVerificationNotification();
 
         return back()->with('verificationStatus', 'verification-link-sent');
     }
