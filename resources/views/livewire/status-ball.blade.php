@@ -4,7 +4,11 @@
     @if ($serverStatus === 'loading')
         <img src="/img/resources/loading-gif.gif" alt="Cargando" wire:loading.class='hidden' class="w-11">
     @else
-        <div class="col-span-1 {{ $serverStatus ? 'color-cSecondary' : 'color-cBackground' }}"
+        <div class="col-span-1 {{ $serverStatus ? 'color-cSecondary animate-ping rounded-full opacity-95 absolute' : 'color-cBackground' }}"
+            wire:loading.class='hidden'>
+            <i class="fa-solid fa-circle text-4xl"></i>
+        </div>
+                <div class="col-span-1 {{ $serverStatus ? 'color-cSecondary' : 'color-cBackground' }}"
             wire:loading.class='hidden'>
             <i class="fa-solid fa-circle text-4xl"></i>
         </div>
