@@ -43,10 +43,5 @@ Route::get('/termsAndConditions', function () {
     return view('legal.terms-and-conditions');
 })->name('termsAndConditions');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
 
 require __DIR__ . '/auth.php';
