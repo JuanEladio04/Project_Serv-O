@@ -8,10 +8,11 @@
             wire:loading.class='hidden'>
             <i class="fa-solid fa-circle text-4xl"></i>
         </div>
-                <div class="col-span-1 {{ $serverStatus ? 'color-cSecondary' : 'color-cBackground' }}"
-            wire:loading.class='hidden'>
-            <i class="fa-solid fa-circle text-4xl"></i>
-        </div>
+        @if ($serverStatus)
+            <div class="col-span-1 color-cSecondary" wire:loading.class='hidden'>
+                <i class="fa-solid fa-circle text-4xl"></i>
+            </div>
+        @endif
     @endif
 
     <x-loading-loop>w-11 inline</x-loading-loop>
