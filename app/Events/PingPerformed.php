@@ -14,15 +14,15 @@ class PingPerformed implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $result;
+    public $pingResult;
     public $server_dir;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(Bool $result, $server_dir)
+    public function __construct(Bool $pingResult, $server_dir)
     {
-        $this->result = $result;
+        $this->pingResult = $pingResult;
         $this->server_dir = $server_dir;
     }
 

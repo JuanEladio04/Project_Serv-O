@@ -45,7 +45,7 @@ class StatusBall extends Component
     public function handlePingPerformed($event)
     {
         if($this->serverStatus === 'loading'){
-            $this->serverStatus = $event['result'];
+            $this->serverStatus = $event['pingResult'];
         }
     }
 }

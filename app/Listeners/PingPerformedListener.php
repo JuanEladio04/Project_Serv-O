@@ -20,10 +20,10 @@ class PingPerformedListener
     public function handle(PingPerformed $event): void
     {
         // Aquí colocas la lógica para manejar el evento PingPerformed
-        $result = $event->result;
+        $pingResult = $event->pingResult;
 
         // Por ejemplo, podrías registrar el resultado del ping o tomar alguna acción en respuesta al ping.
-        if ($result) {
+        if ($pingResult) {
             \Log::info('Ping was successful!');
         } else {
             \Log::warning('Ping failed!');
