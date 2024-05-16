@@ -29,10 +29,9 @@ class PerformPing implements ShouldQueue
     public function handle(): void
     {
         try {
-            exec("ping -n 1 -w 1 $this->server_dir", $output, $result);
+            exec("ping -c 5 $this->server_dir", $output, $result);
 
             if ($result == 0) {
-                // event(new PingPerformed(true, $this->server_dir));
                 PingPerformed::dispatch(true, $this->server_dir);
             } else {
                 PingPerformed::dispatch(false, $this->server_dir);
