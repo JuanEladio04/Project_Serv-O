@@ -8,6 +8,7 @@ use App\Http\Middleware\CheckWorkSpaceRole;
 use App\Http\Middleware\CheckWorkSpaceServer;
 use App\Http\Middleware\CheckWorkSpaceServerRole;
 use App\Http\Middleware\CheckWorkSpaceUser;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\ProfileController;
@@ -31,7 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('server', ServerController::class)->middleware([CheckWorkSpaceServer::class, 'verified']);
     Route::resource('server', ServerController::class)->only('edit', 'update')
-    ->middleware(CheckWorkSpaceServerRole::class);
+        ->middleware(CheckWorkSpaceServerRole::class);
 
     Route::resource('service', ServiceController::class)->middleware([AuthAdmin::class, 'verified']);
     Route::resource('command', CommandController::class);
@@ -41,5 +42,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/termsAndConditions', function () {
     return view('legal.terms-and-conditions');
 })->name('termsAndConditions');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 require __DIR__ . '/auth.php';
