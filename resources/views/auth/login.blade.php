@@ -11,9 +11,9 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <x-custom-input label="Correo electrónico" name="email" type="email" value="{{ old('email') }}"/>
+                <x-custom-input label="Correo electrónico" name="email" type="email" value="{{ old('email') }}" />
 
-                <x-custom-input label="Contraseña" name="password" type="password"/>
+                <x-custom-input label="Contraseña" name="password" type="password" />
 
                 <!-- Remember Me -->
                 <div class="block mt-4">
@@ -36,6 +36,13 @@
                 <button type="submit" class="bg-cAccent color-cPrimary text-2xl w-full cSubTitle mt-10">
                     Iniciar Sesión
                 </button>
+
+                <a href="{{ route('auth.google') }}">
+                    <button type="button" class="bg-Primary color-cText border-2 text-2xl w-full cSubTitle mt-10">
+                        <img src="/img/externalIcons/googleIcon.png" alt="Logo de google" class="inline w-14">
+                        Iniciar Sesión con Google
+                    </button>
+                </a>
             </form>
         </x-custom-user-form>
     </div>

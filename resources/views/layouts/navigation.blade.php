@@ -102,9 +102,6 @@
                             <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                                 {{ __('Iniciar sesión') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                                {{ __('Registrarse') }}
-                            </x-nav-link>
                         </div>
                     @endauth
                 </div>
