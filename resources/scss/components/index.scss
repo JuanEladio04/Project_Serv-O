@@ -1,6 +1,6 @@
 #header {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0)70%, $cBackground),
-        url(../../../public/img/index/header.png);
+        url(/public/img/index/header.png);
     background-size: cover;
     background-position: center;
 
@@ -13,7 +13,7 @@
 
 #aboutUs {
     background: linear-gradient(to right,$cPrimary 40%,  rgba(0, 0, 0, 0)),
-        url(../../../public/img/index/aboutUs.png);
+        url(/public/img/index/aboutUs.png);
     background-size: cover;
     background-position: center;
 }

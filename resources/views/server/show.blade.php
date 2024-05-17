@@ -40,7 +40,7 @@
                 {{ $server->name }}
             </h1>
             <div class="col-span-1 flex justify-end items-center">
-                <livewire:StatusBall :$server :key="$server->id" lazy />
+                <livewire:StatusBall :$server :key="$server->id"/>
             </div>
             <p class="col-span-3 mt-5 overflow-x-hidden overflow-y-hidden text-cText text-lg">
                 {{ $server->description }}
@@ -48,7 +48,7 @@
         </article>
         <article>
             <h2 class="text-4xl">Recursos</h2>
-            <livewire:ServerResources :server="$server" lazy />
+            <livewire:ServerResources :server="$server"/>
         </article>
         <article>
             <div class="grid grid-cols-2">

@@ -20,8 +20,8 @@
                 <x-custom-user-form>
                     <h1 class="text-center text-3xl">Editar comando: {{ $command->name }}</h1>
 
-                    <x-CustomInput label="Nombre del comando" name="name" type="text" wireModel="name" />
-                    <x-CustomInput label="Comando" name="commandStr" type="text" wireModel="commandStr" />
+                    <x-custom-input label="Nombre del comando" name="name" type="text" wireModel="name" />
+                    <x-custom-input label="Comando" name="commandStr" type="text" wireModel="commandStr" />
                     <div class="text-left mt-5">
                         <label for="operation" class="cSubTitle color-cBackground text-xl">Selecciona el tipo
                             de operación</label>

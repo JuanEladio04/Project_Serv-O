@@ -8,7 +8,7 @@
 
 
     <div class="w-full sm:w-1/2 mx-auto">
-        <x-customForm>
+        <x-custom-form>
             <h1 class="text-4xl text-center overflow-x-hidden overflow-y-hidden flex-wrap">
                 {{ $workSpace->name }}
             </h1>
@@ -18,7 +18,7 @@
                 @method('PUT')
 
                 <!-- WorkSpace Name -->
-                <x-CustomInput label="Nombre del espacio de trabajo" name="name" type="text" value="{{ $workSpace->name }}" />
+                <x-custom-input label="Nombre del espacio de trabajo" name="name" type="text" value="{{ $workSpace->name }}" />
 
                 <!-- WorkSpace Description -->
                 <div class="input-wrapper mt-7">
@@ -39,7 +39,7 @@
                 </button>
 
             </form>
-        </x-customForm>
+        </x-custom-form>
     </div>
 
 </x-app-layout>

@@ -67,9 +67,6 @@
                 <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
                     {{ 'Iniciar Sesión' }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                    {{ 'Registrarse' }}
-                </x-responsive-nav-link>
             @endauth
         </div>
     </div>

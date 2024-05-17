@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="mt-4 flex items-center justify-between text-center">
-        <x-customUserForm>
+        <x-custom-user-form>
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
                 <div class="mb-4 text-sm color-cText">
@@ -31,6 +31,6 @@
                     Cerrar sesión
                 </button>
             </form>
-        </x-customUserForm>
+        </x-custom-user-form>
     </div>
 </x-guest-layout>

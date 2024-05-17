@@ -8,7 +8,7 @@
     
 
     <div class="w-full sm:w-1/2 mx-auto">
-        <x-customForm>
+        <x-custom-form>
 
             <h1 class="text-4xl text-center">
                 Nuevo Espacio de Trabajo
@@ -17,7 +17,7 @@
             <form method="POST" action="{{ route('workSpace.store') }}" class="sm:p-4">
                 @csrf
                 <!-- WorkSpace Name -->
-                <x-CustomInput label="Nombre del espacio de trabajo" name="name" type="text" value="{{ old('name') }}" />
+                <x-custom-input label="Nombre del espacio de trabajo" name="name" type="text" value="{{ old('name') }}" />
 
 
                 <!-- WorkSpace Description -->
@@ -40,7 +40,7 @@
                 </button>
 
             </form>
-        </x-customForm>
+        </x-custom-form>
     </div>
 
 </x-app-layout>

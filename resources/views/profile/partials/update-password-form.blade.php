@@ -10,15 +10,15 @@
         @csrf
         @method('put')
 
-        <x-CustomInput label="Contraseña actual" id="update_password_current_password" name="current_password"
+        <x-custom-input label="Contraseña actual" id="update_password_current_password" name="current_password"
             type="password" value="" />
         <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
 
-        <x-CustomInput label="Nueva contraseña" id="update_password_password" name="password" type="password"
+        <x-custom-input label="Nueva contraseña" id="update_password_password" name="password" type="password"
             value="" />
         <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
 
-        <x-CustomInput label="Confirmar contrseña" id="update_password_password_confirmation"
+        <x-custom-input label="Confirmar contrseña" id="update_password_password_confirmation"
             name="password_confirmation" type="password" value="" />
         <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
 

@@ -8,7 +8,7 @@
 
 
     <div class="w-full sm:w-1/2 mx-auto">
-        <x-customForm>
+        <x-custom-form>
             <h1 class="text-4xl text-center overflow-x-hidden overflow-y-hidden flex-wrap">
                 Editar servidor: {{ $server->name }}
             </h1>
@@ -18,14 +18,14 @@
                 @method('PUT')
 
                 <!-- Server Name -->
-                <x-CustomInput label="Nombre del servidor" name="name" type="text" value="{{ $server->name }}" />
+                <x-custom-input label="Nombre del servidor" name="name" type="text" value="{{ $server->name }}" />
                 <!-- Server Direction -->
-                <x-CustomInput label="Dirección del servidor" name="server_dir" type="text" value="{{ $server->server_dir }}" />
+                <x-custom-input label="Dirección del servidor" name="server_dir" type="text" value="{{ $server->server_dir }}" />
                 <!-- Server User Root -->
-                <x-CustomInput label="Usuario del servidor" name="user_root" type="text"
+                <x-custom-input label="Usuario del servidor" name="user_root" type="text"
                     value="{{ $server->user_root }}" />
                 <!-- Server Password -->
-                <x-CustomInput label="Contraseña del servidor" name="password" type="password"
+                <x-custom-input label="Contraseña del servidor" name="password" type="password"
                     value="{{ $server->password }}" />
 
                 <!-- Server Description -->
@@ -47,7 +47,7 @@
                 </button>
 
             </form>
-        </x-customForm>
+        </x-custom-form>
     </div>
 
 </x-app-layout>

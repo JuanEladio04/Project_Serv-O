@@ -14,11 +14,11 @@
                 <x-custom-user-form>
                     <h1 class="text-center text-3xl">Nuevo servidor</h1>
 
-                    <x-CustomInput label="Nombre del servidor" name="name" type="text" wireModel="name" />
-                    <x-CustomInput label="Dirección del servidor" name="direction" type="text"
+                    <x-custom-input label="Nombre del servidor" name="name" type="text" wireModel="name" />
+                    <x-custom-input label="Dirección del servidor" name="direction" type="text"
                         wireModel="direction" />
-                    <x-CustomInput label="Usuario del servidor" name="user" type="text" wireModel="user" />
-                    <x-CustomInput label="Contraseña del usuario del servidor" name="password" type="password"
+                    <x-custom-input label="Usuario del servidor" name="user" type="text" wireModel="user" />
+                    <x-custom-input label="Contraseña del usuario del servidor" name="password" type="password"
                         wireModel="password" />
 
                     <div class="input-wrapper mt-7 text-left">
