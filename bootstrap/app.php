@@ -17,13 +17,17 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->renderable(function (HttpException $e) {
-            $statusCode = $e->getStatusCode();
-            $errorMessage = Response::$statusTexts[$statusCode];
-
-            return response()->view('errors.error', [
-                'statusCode' => $statusCode,
-                'errorMessage' => $errorMessage
-            ], $statusCode);
-        });
+        try {
+            $exceptions->renderable(function (HttpException $e) {
+                $statusCode = $e->getStatusCode();
+                $errorMessage = Response::$statusTexts[$statusCode];
+    
+                return response()->view('errors.error', [
+                    'statusCode' => $statusCode,
+                    'errorMessage' => $errorMessage
+                ], $statusCode);
+            });
+        } catch (\Throwable $th) {
+            return redirect(route('/'));
+        }
     })->create();
