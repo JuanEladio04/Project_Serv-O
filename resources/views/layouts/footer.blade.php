@@ -11,7 +11,7 @@
     </div>
     <div class="border-3 order-3 sm:text-xl text-2xl py-5">
         <p class="cSubTitle block">Contactanos:</p>
-        <p class="cSubTitle block">X@correo.com</p>
+        <p class="cSubTitle block">servomegaemail@gmail.com</p>
         <p class="cSubTitle block">+34 000 00 00 00</p>
     </div>
 </footer>
