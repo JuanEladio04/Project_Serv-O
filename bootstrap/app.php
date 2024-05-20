@@ -28,10 +28,10 @@ return Application::configure(basePath: dirname(__DIR__))
                         'errorMessage' => $errorMessage
                     ], $statusCode);
                 } catch (\Throwable $th) {
-                    return redirect(route('/'));
+                    return redirect(route('index'));
                 }
             });
         } catch (\Throwable $th) {
-            return redirect(route('/'));
+            return redirect(route('index'));
         }
     })->create();
