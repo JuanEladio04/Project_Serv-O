@@ -19,13 +19,17 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         try {
             $exceptions->renderable(function (HttpException $e) {
-                $statusCode = $e->getStatusCode();
-                $errorMessage = Response::$statusTexts[$statusCode];
-    
-                return response()->view('errors.error', [
-                    'statusCode' => $statusCode,
-                    'errorMessage' => $errorMessage
-                ], $statusCode);
+                try {
+                    $statusCode = $e->getStatusCode();
+                    $errorMessage = Response::$statusTexts[$statusCode];
+
+                    return response()->view('errors.error', [
+                        'statusCode' => $statusCode,
+                        'errorMessage' => $errorMessage
+                    ], $statusCode);
+                } catch (\Throwable $th) {
+                    return redirect(route('/'));
+                }
             });
         } catch (\Throwable $th) {
             return redirect(route('/'));
