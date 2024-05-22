@@ -49,5 +49,4 @@ Route::get('/termsAndConditions', function () {
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
 
-
 require __DIR__ . '/auth.php';
