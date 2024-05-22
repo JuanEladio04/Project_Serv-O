@@ -44,30 +44,28 @@
             </button>
         </div>
         @isset($selectedCommand)
-            <div wire:transition.duration.500ms>
-                <div>
-                    <p class="my-3 text-xl">
-                        {{ $selectedCommand->description }}
-                    </p>
-                </div>
+            <div>
+                <p class="my-3 text-xl">
+                    {{ $selectedCommand->description }}
+                </p>
+            </div>
 
-                <div>
-                    <div class="input-wrapper mt-4 text-left my-7">
-                        <div class="relative z-0">
-                            <input type="text" wire:model='arguments'
-                                class="block py-2.5 px-3 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer"
-                                placeholder=" " />
-                            <label for="email"
-                                class="absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 z-10 bg-cPrimary origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto mx-3">
-                                Argumentos
-                            </label>
-                        </div>
+            <div>
+                <div class="input-wrapper mt-4 text-left my-7">
+                    <div class="relative z-0">
+                        <input type="text" wire:model='arguments'
+                            class="block py-2.5 px-3 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer"
+                            placeholder=" " />
+                        <label for="email"
+                            class="absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 z-10 bg-cPrimary origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto mx-3">
+                            Argumentos
+                        </label>
                     </div>
-
-                    <textarea class="block w-full resize-none text-2xl" name="" id="" cols="30" rows="10" disabled
-                        wire:model.live='commandOutput'>
-                        </textarea>
                 </div>
+
+                <textarea class="block w-full resize-none text-2xl" name="" id="" cols="30" rows="10" disabled
+                    wire:model.live='commandOutput'>
+                        </textarea>
             </div>
         @endisset
     @endif
