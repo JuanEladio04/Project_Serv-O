@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Http\Request;
 
 class EmailVerificationNotificationController extends Controller
 {
@@ -16,22 +14,11 @@ class EmailVerificationNotificationController extends Controller
     public function store(Request $request): RedirectResponse
     {
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(route('index', [], false));
+            return redirect()->intended(route('index', absolute: false));
         }
 
-        VerifyEmail::createUrlUsing(function ($notifiable) use ($request) {
-            return URL::temporarySignedRoute(
-                'verification.verify',
-                now()->addMinutes(60),
-                [
-                    'id' => $request->user()->getKey(),
-                    'hash' => sha1($request->user()->getEmailForVerification()),
-                ]
-            );
-        });
+        $request->user()->sendEmailVerificationNotification();
 
-        $request->user()->notify(new VerifyEmail);
-
-        return back()->with('verificationStatus', 'verification-link-sent');
+        return back()->with('status', 'verification-link-sent');
     }
 }
