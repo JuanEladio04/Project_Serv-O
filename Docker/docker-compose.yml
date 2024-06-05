@@ -13,6 +13,7 @@ services:
     ports:
       - "8000:8000"
       - "5173:5173"
+      - "5174:5174"
     networks:
       - laravel
     # depends_on:
@@ -31,7 +32,6 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: laravel
       MYSQL_USER: laravel
       MYSQL_PASSWORD: secret
     networks:

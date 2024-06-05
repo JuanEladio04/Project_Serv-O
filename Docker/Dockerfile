@@ -17,4 +17,3 @@ RUN docker-php-ext-install pdo_mysql
 # Set the working directory
 WORKDIR /app
 
-# No es necesario montar el directorio como volumen si quieres trabajar directamente en él
