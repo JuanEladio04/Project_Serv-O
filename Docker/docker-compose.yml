@@ -1,0 +1,41 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../:/app
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    networks:
+      - laravel
+    # depends_on:
+    #   - db
+    command: >
+      bash -c
+        "npm install ;
+        composer install ;
+        php artisan serve --host=0.0.0.0 --port=8000 &
+        npm run dev"
+    # tail -f /dev/null"
+
+  db:
+    image: mysql:8.0
+    container_name: laravel_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    networks:
+      - laravel
+
+networks:
+  laravel:
