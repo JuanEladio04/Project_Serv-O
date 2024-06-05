@@ -16,8 +16,8 @@ services:
       - "5174:5174"
     networks:
       - laravel
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
     command: >
       bash -c
         "npm install ;
