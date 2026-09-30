@@ -1,4 +1,3 @@
-# Usar la imagen oficial PHP 8.2 FPM (base para Laravel)
 FROM php:8.3-fpm
 
 RUN apt-get update && apt-get install -y \
@@ -14,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
 
-RUN docker-php-ext-install pdo_mysql bcmath gd
+RUN docker-php-ext-install pdo_mysql bcmath gd pcntl
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 

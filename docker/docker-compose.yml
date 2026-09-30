@@ -9,7 +9,7 @@ services:
             #     WWWGROUP: '${WWWGROUP}'
         container_name: serv-o-laravel
         ports:
-            - 80:8000
+            - 8000:8000
             - 5173:5173
         volumes:
             - '..:/app'
@@ -18,6 +18,39 @@ services:
         command: sh -c "npm install && composer install && composer run dev"
         networks:
             - serv-o-network
+
+    queue-worker:
+        build:
+            context: '.'
+            dockerfile: Dockerfile
+        container_name: serv-o-worker
+        restart: unless-stopped
+        volumes:
+            - '..:/app'
+            - 'vendor_cache:/app/vendor'
+        command: sh -c "php artisan queue:work --verbose --tries=3 --timeout=90"
+        networks:
+            - serv-o-network
+        depends_on:
+            - db
+            - serv-o-laravel
+
+    reverb:
+        build:
+            context: '.'
+            dockerfile: Dockerfile
+        container_name: serv-o-reverb
+        restart: unless-stopped
+        ports:
+            - "8080:8080"
+        volumes:
+            - '..:/app'
+            - 'vendor_cache:/app/vendor'
+        command: sh -c "php artisan reverb:start --host=0.0.0.0 --port=8080"
+        networks:
+            - serv-o-network
+        depends_on:
+            - serv-o-laravel
 
     db:
         image: mysql:8.0
