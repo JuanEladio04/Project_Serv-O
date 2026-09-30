@@ -21,5 +21,8 @@
     },
     "dependencies": {
         "flowbite": "^2.3.0"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "^4.63.5"
     }
 }

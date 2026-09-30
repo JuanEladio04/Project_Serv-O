@@ -1,18 +1,21 @@
-# Use the official PHP 8.1 CLI image
-FROM php:8.2-cli
+# Usar la imagen oficial PHP 8.2 FPM (base para Laravel)
+FROM php:8.3-fpm
 
-# Install npm if needed
 RUN apt-get update && apt-get install -y \
-    npm \
-    zip \
+    git \
+    unzip \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-dev \
+    curl \
+    gnupg \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
 
-# Install required PHP extensions
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_mysql bcmath gd
 
-# Set the working directory
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
 WORKDIR /app
-
